@@ -1,39 +1,34 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-
 /* =========================================================
    BITANIYA BIBLE STUDY
-   CLEAN COMPLETE DESIGN SYSTEM
-   LIGHT / DARK + 7 THEMES
-   ========================================================= */
-
-/* =========================================================
-   1. GLOBAL RESET
+   COMPLETE APP CSS
+   Light / Dark Mode + 7 Color Themes
    ========================================================= */
 
 * {
   box-sizing: border-box;
 }
 
-html,
-body,
-#root {
-  margin: 0;
-  padding: 0;
-  width: 100%;
+html {
   min-height: 100%;
+  background: #f8f7f3;
+  color-scheme: light;
 }
 
 body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #f8f7f3;
+  color: #252331;
   font-family:
     Inter,
-    system-ui,
     -apple-system,
     BlinkMacSystemFont,
     "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
     sans-serif;
-
-  background: #f8f7f3;
-  color: #252331;
 }
 
 button,
@@ -47,513 +42,137 @@ button {
   cursor: pointer;
 }
 
-button:disabled {
-  opacity: .55;
-  cursor: not-allowed;
+#root {
+  min-height: 100vh;
 }
 
-img,
-svg {
-  max-width: 100%;
-}
 
 /* =========================================================
-   2. MASTER APP VARIABLES
+   APP BASE
    ========================================================= */
 
 .app {
   --bg: #f8f7f3;
   --card: #ffffff;
-  --card-2: #faf9fc;
-
   --ink: #252331;
   --muted: #6e6878;
   --hint: #aaa4b0;
-
-  --border: #e4e0e8;
-  --input: #f7f5f8;
-  --soft: #e9e3f3;
-  --toolbar: #f1eef5;
-
+  --border: #e9e5ef;
+  --input: #f7f5f9;
   --accent: #5e4b8b;
-  --accent-hover: #4e3d76;
-  --accent-text: #ffffff;
-
-  --danger: #a84e58;
-  --success: #4f805e;
-  --warning: #9b7537;
-
-  --shadow-sm: 0 2px 8px rgba(40, 30, 55, .05);
-  --shadow: 0 8px 25px rgba(40, 30, 55, .08);
-  --shadow-lg: 0 18px 50px rgba(20, 15, 30, .15);
+  --soft: #e9e3f3;
+  --toolbar: #f2eff6;
+  --danger: #b44752;
+  --purple: #5e4b8b;
 
   min-height: 100vh;
   width: 100%;
-
-  background: var(--bg);
-  color: var(--ink);
+  background: var(--bg) !important;
+  color: var(--ink) !important;
 
   transition:
-    background-color .25s ease,
-    color .25s ease;
+    background-color 0.25s ease,
+    color 0.25s ease;
 }
+
 
 /* =========================================================
-   3. DARK MODE BASE
+   LIGHT MODE
    ========================================================= */
 
-.app.dark {
-  --bg: #15121b;
-  --card: #211d29;
-  --card-2: #27222f;
-
-  --ink: #f7f4fb;
-  --muted: #b8b1c2;
-  --hint: #8e8799;
-
-  --border: #3b3545;
-  --input: #292431;
-  --soft: #342b40;
-  --toolbar: #2b2534;
-
-  --accent: #bfa9e8;
-  --accent-hover: #d0bef1;
-  --accent-text: #211d29;
-
-  --danger: #f08b96;
-  --success: #8ac69a;
-  --warning: #d6b56b;
-
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, .20);
-  --shadow: 0 8px 28px rgba(0, 0, 0, .28);
-  --shadow-lg: 0 18px 55px rgba(0, 0, 0, .45);
-}
-
-/* =========================================================
-   4. WARM BIBLE
-   ========================================================= */
-
-.app.light.theme-warm {
-  --bg: #f6f0e7;
-  --card: #fffdf8;
-  --card-2: #faf5ee;
-  --ink: #2e261f;
-  --muted: #756a60;
-  --hint: #a89b8e;
-  --border: #ded2c5;
-  --input: #f5eee5;
-  --soft: #eadccb;
-  --toolbar: #f0e7dc;
-  --accent: #8a5a3b;
-  --accent-hover: #744a30;
-  --accent-text: #ffffff;
-}
-
-.app.dark.theme-warm {
-  --bg: #1d1814;
-  --card: #29221d;
-  --card-2: #322923;
-  --ink: #f7efe5;
-  --muted: #c2b4a7;
-  --hint: #8f8175;
-  --border: #493c33;
-  --input: #302720;
-  --soft: #49372b;
-  --toolbar: #382d25;
-  --accent: #d6a06f;
-  --accent-hover: #e2b285;
-  --accent-text: #291f19;
-}
-
-/* =========================================================
-   5. SAGE
-   ========================================================= */
-
-.app.light.theme-sage {
-  --bg: #f2f6f1;
-  --card: #ffffff;
-  --card-2: #f8faf7;
-  --ink: #243026;
-  --muted: #667166;
-  --hint: #9aa59a;
-  --border: #d8e0d7;
-  --input: #f1f5f0;
-  --soft: #dde9de;
-  --toolbar: #eaf1ea;
-  --accent: #5d8062;
-  --accent-hover: #4b6c50;
-  --accent-text: #ffffff;
-}
-
-.app.dark.theme-sage {
-  --bg: #171c18;
-  --card: #232a24;
-  --card-2: #29322a;
-  --ink: #eef5ee;
-  --muted: #b4c0b5;
-  --hint: #7f8d81;
-  --border: #39443a;
-  --input: #2a322b;
-  --soft: #344438;
-  --toolbar: #303b32;
-  --accent: #9bc3a0;
-  --accent-hover: #afd2b3;
-  --accent-text: #182019;
-}
-
-/* =========================================================
-   6. NAVY & GOLD
-   ========================================================= */
-
-.app.light.theme-navy {
-  --bg: #f2f4f8;
-  --card: #ffffff;
-  --card-2: #f8f9fb;
-  --ink: #202a3a;
-  --muted: #687386;
-  --hint: #9aa4b3;
-  --border: #d8dee8;
-  --input: #f1f3f7;
-  --soft: #e5eaf2;
-  --toolbar: #ebeef4;
-  --accent: #29466f;
-  --accent-hover: #1f385a;
-  --accent-text: #ffffff;
-}
-
-.app.dark.theme-navy {
-  --bg: #151a23;
-  --card: #202938;
-  --card-2: #273243;
-  --ink: #f1f4f9;
-  --muted: #b2bbc9;
-  --hint: #7e899a;
-  --border: #354154;
-  --input: #283243;
-  --soft: #303c50;
-  --toolbar: #2a3547;
-  --accent: #d4b66c;
-  --accent-hover: #e3c981;
-  --accent-text: #171c25;
-}
-
-/* =========================================================
-   7. MIDNIGHT GOLD
-   ========================================================= */
-
-.app.light.theme-midnight {
-  --bg: #f4f1ea;
-  --card: #fffefa;
-  --card-2: #faf8f2;
-  --ink: #25231f;
-  --muted: #716d64;
-  --hint: #a29c91;
-  --border: #ddd8cc;
-  --input: #f3f0e9;
-  --soft: #e9e4d9;
-  --toolbar: #efebe2;
-  --accent: #a47b38;
-  --accent-hover: #89652c;
-  --accent-text: #ffffff;
-}
-
-.app.dark.theme-midnight {
-  --bg: #111110;
-  --card: #1d1c19;
-  --card-2: #24231f;
-  --ink: #f5f0e5;
-  --muted: #bdb7aa;
-  --hint: #827c71;
-  --border: #38352f;
-  --input: #27251f;
-  --soft: #373329;
-  --toolbar: #2d2b26;
-  --accent: #d7c59b;
-  --accent-hover: #e4d3ac;
-  --accent-text: #17150f;
-}
-
-/* =========================================================
-   8. PEACEFUL BLUE
-   ========================================================= */
-
-.app.light.theme-blue {
-  --bg: #eef7fb;
-  --card: #ffffff;
-  --card-2: #f7fbfd;
-  --ink: #22313a;
-  --muted: #687a83;
-  --hint: #9aaab1;
-  --border: #d5e6ed;
-  --input: #eff7fa;
-  --soft: #dcecf3;
-  --toolbar: #e8f3f7;
-  --accent: #5c91a8;
-  --accent-hover: #47798e;
-  --accent-text: #ffffff;
-}
-
-.app.dark.theme-blue {
-  --bg: #141c21;
-  --card: #202d33;
-  --card-2: #27363d;
-  --ink: #eff7fa;
-  --muted: #b4c4ca;
-  --hint: #7e929a;
-  --border: #354850;
-  --input: #293940;
-  --soft: #30434b;
-  --toolbar: #2b3c43;
-  --accent: #9acfe2;
-  --accent-hover: #b0dbe8;
-  --accent-text: #172126;
-}
-
-/* =========================================================
-   9. TERRACOTTA
-   ========================================================= */
-
-.app.light.theme-terracotta {
-  --bg: #f8f0ea;
-  --card: #fffdfc;
-  --card-2: #fbf7f4;
-  --ink: #332720;
-  --muted: #77675e;
-  --hint: #aa9990;
-  --border: #e2d2c9;
-  --input: #f7eee8;
-  --soft: #f0ddd4;
-  --toolbar: #f2e6df;
-  --accent: #b96548;
-  --accent-hover: #9f5138;
-  --accent-text: #ffffff;
-}
-
-.app.dark.theme-terracotta {
-  --bg: #201714;
-  --card: #2c211d;
-  --card-2: #352823;
-  --ink: #faf0ea;
-  --muted: #c7b3aa;
-  --hint: #907b72;
-  --border: #493630;
-  --input: #342722;
-  --soft: #49332c;
-  --toolbar: #3a2b26;
-  --accent: #e39a7d;
-  --accent-hover: #efad93;
-  --accent-text: #281915;
-}
-
-/* =========================================================
-   10. CLASSIC PLUM
-   ========================================================= */
-
-.app.light.theme-plum {
+.app.light {
   --bg: #f8f7f3;
   --card: #ffffff;
-  --card-2: #faf9fc;
   --ink: #252331;
   --muted: #6e6878;
   --hint: #aaa4b0;
-  --border: #e4e0e8;
-  --input: #f6f3f8;
-  --soft: #e9e3f3;
-  --toolbar: #f3f0f6;
+  --border: #e9e5ef;
+  --input: #f7f5f9;
   --accent: #5e4b8b;
-  --accent-hover: #4e3d76;
-  --accent-text: #ffffff;
+  --soft: #e9e3f3;
+  --toolbar: #f2eff6;
+  --danger: #b44752;
+  --purple: #5e4b8b;
+
+  background: #f8f7f3 !important;
+  color: #252331 !important;
 }
 
-.app.dark.theme-plum {
+.app.light * {
+  color-scheme: light;
+}
+
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+.app.dark {
   --bg: #19171e;
-  --card: #24212a;
-  --card-2: #2b2732;
-  --ink: #f4f1f7;
-  --muted: #b6afbd;
-  --hint: #817a88;
-  --border: #383340;
-  --input: #2b2732;
-  --soft: #3a3148;
+  --card: #25222c;
+  --ink: #f7f4fb;
+  --muted: #b9b2c4;
+  --hint: #8f879b;
+  --border: #403a4b;
+  --input: #302b38;
+  --accent: #bfa9e8;
+  --soft: #3a3347;
   --toolbar: #302b38;
-  --accent: #b9a5e7;
-  --accent-hover: #cbb9ef;
-  --accent-text: #17131e;
+  --danger: #f08b96;
+  --purple: #bfa9e8;
+
+  background: #19171e !important;
+  color: #f7f4fb !important;
 }
 
+.app.dark * {
+  color-scheme: dark;
+}
+
+.app.dark ~ * {
+  background: #19171e;
+}
+
+
 /* =========================================================
-   11. APP CONTAINER
+   DARK MODE — GLOBAL ELEMENT OVERRIDES
    ========================================================= */
 
-.app {
-  padding-bottom: 88px;
+.app.dark .app,
+.app.dark main,
+.app.dark section,
+.app.dark article {
+  background-color: transparent;
 }
 
-.app .content {
-  width: min(900px, 100%);
-  margin: 0 auto;
-  padding: 24px 18px;
+.app.dark .card,
+.app.dark .study-card,
+.app.dark .panel,
+.app.dark .settings-card,
+.app.dark .content-card,
+.app.dark .character-card,
+.app.dark .journal-card,
+.app.dark .tracker-card {
+  background: var(--card) !important;
+  color: var(--ink) !important;
+  border-color: var(--border) !important;
 }
+
+.app.dark p,
+.app.dark span,
+.app.dark label,
+.app.dark h1,
+.app.dark h2,
+.app.dark h3,
+.app.dark h4,
+.app.dark h5,
+.app.dark h6 {
+  color: inherit;
+}
+
 
 /* =========================================================
-   12. TOP BAR
-   ========================================================= */
-
-.app .topbar {
-  height: 72px;
-
-  position: sticky;
-  top: 0;
-  z-index: 20;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  padding: 0 max(18px, calc((100vw - 900px) / 2));
-
-  background: var(--bg);
-  color: var(--ink);
-
-  border-bottom: 1px solid var(--border);
-
-  backdrop-filter: blur(14px);
-
-  transition:
-    background-color .25s ease,
-    border-color .25s ease;
-}
-
-.app .brand {
-  border: 0;
-  background: transparent;
-
-  color: var(--ink);
-
-  font-size: 25px;
-  font-weight: 800;
-
-  cursor: pointer;
-}
-
-.app .top-actions {
-  display: flex;
-  gap: 4px;
-}
-
-/* =========================================================
-   13. ICON BUTTONS
-   ========================================================= */
-
-.app .iconbtn {
-  width: 42px;
-  height: 42px;
-
-  border: 0;
-  border-radius: 50%;
-
-  display: inline-grid;
-  place-items: center;
-
-  background: transparent;
-  color: var(--muted);
-}
-
-.app .iconbtn:hover {
-  background: var(--soft);
-  color: var(--accent);
-}
-
-.app .iconbtn svg {
-  width: 19px;
-  height: 19px;
-}
-
-/* =========================================================
-   14. MENU
-   ========================================================= */
-
-.app .mobile-menu {
-  display: none;
-}
-
-.app .menu {
-  position: fixed;
-
-  right: max(16px, calc((100vw - 900px) / 2));
-  top: 64px;
-
-  z-index: 30;
-
-  width: 245px;
-
-  padding: 8px;
-
-  background: var(--card);
-  color: var(--ink);
-
-  border: 1px solid var(--border);
-  border-radius: 18px;
-
-  box-shadow: var(--shadow-lg);
-}
-
-.app .menu button {
-  width: 100%;
-
-  display: flex;
-  align-items: center;
-  gap: 12px;
-
-  padding: 12px;
-
-  border: 0;
-  border-radius: 12px;
-
-  background: transparent;
-  color: var(--ink);
-
-  text-align: left;
-}
-
-.app .menu button:hover {
-  background: var(--soft);
-  color: var(--accent);
-}
-
-/* =========================================================
-   15. CARDS
-   ========================================================= */
-
-.app .card {
-  background: var(--card);
-  color: var(--ink);
-
-  border: 1px solid var(--border);
-  border-radius: 22px;
-
-  padding: 20px;
-  margin-bottom: 16px;
-
-  box-shadow: var(--shadow-sm);
-
-  transition:
-    background-color .25s ease,
-    border-color .25s ease,
-    box-shadow .25s ease;
-}
-
-.app .card:hover {
-  box-shadow: var(--shadow);
-}
-
-.app .card p {
-  color: var(--muted);
-  line-height: 1.55;
-}
-
-/* =========================================================
-   16. HEADINGS
+   TYPOGRAPHY
    ========================================================= */
 
 .app h1,
@@ -563,1381 +182,1255 @@ svg {
 .app h5,
 .app h6 {
   color: var(--ink);
-}
-
-.app h1 {
-  margin: 0;
-  font-size: 25px;
-}
-
-.app h2 {
   margin-top: 0;
 }
 
 .app p {
-  color: var(--muted);
-}
-
-/* =========================================================
-   17. TODAY CARD
-   ========================================================= */
-
-.app .today-card {
-  text-align: center;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  gap: 10px;
-
-  padding: 30px 22px;
-}
-
-.app .today-card h2 {
-  margin: 4px 0;
-  font-size: 23px;
-}
-
-.app .hero-icon {
-  width: 42px;
-  height: 42px;
-  color: var(--accent);
-}
-
-/* =========================================================
-   18. LABELS
-   ========================================================= */
-
-.app .eyebrow,
-.app .section-title {
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: .14em;
-
-  color: var(--accent);
-}
-
-.app .section-title {
-  margin: 26px 2px 10px;
-}
-
-/* =========================================================
-   19. STATS
-   ========================================================= */
-
-.app .stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-
-  padding: 0;
-}
-
-.app .stat {
-  min-height: 120px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  gap: 6px;
-}
-
-.app .stat + .stat {
-  border-left: 1px solid var(--border);
-}
-
-.app .stat svg {
-  color: var(--accent);
-  width: 21px;
-}
-
-.app .stat b {
-  font-size: 25px;
   color: var(--ink);
 }
 
-.app .stat span {
-  font-size: 12px;
+.app .muted,
+.app .subtitle,
+.app .description,
+.app .helper-text,
+.app .small-text {
   color: var(--muted);
 }
 
-/* =========================================================
-   20. PROGRESS
-   ========================================================= */
-
-.app .progress {
-  height: 8px;
-
-  margin: 10px 0;
-
-  background: var(--soft);
-
-  border-radius: 99px;
-  overflow: hidden;
-}
-
-.app .progress span {
-  display: block;
-
-  height: 100%;
-
-  background: var(--accent);
-
-  border-radius: 99px;
-
-  transition: width .3s ease;
-}
-
-/* =========================================================
-   21. NEW TESTAMENT CARD
-   ========================================================= */
-
-.app .nt-card {
-  width: 100%;
-
-  display: flex;
-  align-items: center;
-  gap: 14px;
-
-  padding: 18px;
-
-  background: var(--card);
-  color: var(--ink);
-
-  border: 1px solid var(--border);
-  border-radius: 22px;
-
-  text-align: left;
-}
-
-.app .nt-card:hover {
-  border-color: var(--accent);
-  background: var(--card-2);
-}
-
-.app .nt-card > svg {
-  color: var(--accent);
-}
-
-.app .nt-card strong {
-  color: var(--accent);
-}
-
-/* =========================================================
-   22. RECENT STUDIES
-   ========================================================= */
-
-.app .section-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.app .recent {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-
-  padding: 16px;
-  margin-bottom: 10px;
-
-  background: var(--card);
-  color: var(--ink);
-
-  border: 1px solid var(--border);
-  border-radius: 18px;
-}
-
-.app .recent:hover {
-  background: var(--card-2);
-  border-color: var(--accent);
-}
-
-.app .recent > svg {
-  color: var(--accent);
-}
-
-.app .recent p {
-  margin: 5px 0 0;
-  font-size: 13px;
-  color: var(--muted);
-}
-
-/* =========================================================
-   23. EMPTY STATE
-   ========================================================= */
-
-.app .empty {
-  text-align: center;
-  padding: 36px 18px;
-}
-
-.app .empty > svg {
-  width: 40px;
-  height: 40px;
-
-  margin-bottom: 10px;
-
+.app .hint {
   color: var(--hint);
 }
 
-.app .empty b {
-  display: block;
-  color: var(--ink);
-}
 
 /* =========================================================
-   24. BUTTON SYSTEM
+   TOP BAR / HEADER
    ========================================================= */
 
-.app .primary,
-.app .outline,
-.app .text-danger {
-  min-height: 46px;
-
-  border-radius: 14px;
-
-  padding: 0 17px;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  gap: 9px;
-
-  font-weight: 700;
-
-  transition:
-    background-color .2s ease,
-    color .2s ease,
-    border-color .2s ease,
-    transform .15s ease;
+.topbar,
+.header,
+.app-header {
+  background: var(--card) !important;
+  color: var(--ink) !important;
+  border-bottom: 1px solid var(--border);
 }
 
-.app .primary {
-  background: var(--accent);
-  color: var(--accent-text);
-
-  border: 1px solid var(--accent);
+.app.dark .topbar,
+.app.dark .header,
+.app.dark .app-header {
+  background: #25222c !important;
+  color: #f7f4fb !important;
+  border-color: #403a4b !important;
 }
 
-.app .primary:hover {
-  background: var(--accent-hover);
-  border-color: var(--accent-hover);
-  transform: translateY(-1px);
+.topbar *,
+.header *,
+.app-header * {
+  color: inherit;
 }
 
-.app .outline {
-  background: transparent;
+
+/* =========================================================
+   LOGO / TITLE
+   ========================================================= */
+
+.logo,
+.app-logo,
+.brand,
+.brand-title {
   color: var(--accent);
-
-  border: 1px solid var(--accent);
 }
 
-.app .outline:hover {
-  background: var(--soft);
+.app.dark .logo,
+.app.dark .app-logo,
+.app.dark .brand,
+.app.dark .brand-title {
+  color: var(--accent);
 }
 
-.app .text-danger {
-  background: transparent;
-  color: var(--danger);
-  border: 0;
-}
-
-.app .text-danger:hover {
-  background: rgba(180, 71, 82, .08);
-}
-
-.app .big {
-  min-height: 52px;
-  padding: 0 23px;
-  border-radius: 16px;
-}
-
-.app .full {
-  width: 100%;
-  margin-top: 10px;
-}
 
 /* =========================================================
-   25. BOTTOM NAVIGATION
+   CARDS
    ========================================================= */
 
-.app .bottom {
-  position: fixed;
-
-  left: 0;
-  right: 0;
-  bottom: 0;
-
-  height: 76px;
-
-  z-index: 25;
-
-  display: flex;
-  justify-content: center;
-
+.card,
+.study-card,
+.panel,
+.settings-card,
+.content-card,
+.character-card,
+.journal-card,
+.tracker-card {
   background: var(--card);
   color: var(--ink);
-
-  border-top: 1px solid var(--border);
-
-  box-shadow: 0 -5px 20px rgba(0, 0, 0, .04);
-}
-
-.app .bottom button {
-  width: min(150px, 20%);
-
-  border: 0;
-
-  background: transparent;
-  color: var(--muted);
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  gap: 4px;
-
-  font-size: 11px;
-  font-weight: 600;
-}
-
-.app .bottom button:hover {
-  color: var(--accent);
-}
-
-.app .bottom button.active {
-  color: var(--accent);
-}
-
-.app .bottom button.active svg {
-  background: var(--soft);
-
-  border-radius: 20px;
-
-  padding: 4px;
-
-  width: 30px;
-  height: 26px;
-}
-
-/* =========================================================
-   26. PAGE HEADER
-   ========================================================= */
-
-.app .pagehead {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
-  margin-bottom: 18px;
-}
-
-.app .pagehead h1 {
-  flex: 1;
-}
-
-/* =========================================================
-   27. DATE CARD
-   ========================================================= */
-
-.app .date-card {
-  width: 100%;
-
-  display: flex;
-  align-items: center;
-  gap: 13px;
-
-  padding: 16px;
-
-  margin-bottom: 16px;
-
-  background: var(--card);
-  color: var(--ink);
-
   border: 1px solid var(--border);
   border-radius: 18px;
 
-  text-align: left;
-}
-
-.app .date-card:hover {
-  background: var(--card-2);
-  border-color: var(--accent);
-}
-
-.app .date-card > svg:first-child {
-  color: var(--accent);
-}
-
-.app .date-card svg:last-child {
-  margin-left: auto;
-}
-
-/* =========================================================
-   28. CHAPTER
-   ========================================================= */
-
-.app .chapter {
-  padding: 0;
-  overflow: hidden;
-}
-
-.app .chapter-head {
-  min-height: 72px;
-
-  padding: 15px 17px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  background: var(--card);
-  color: var(--ink);
-}
-
-.app .chapter-head small {
-  display: block;
-  color: var(--muted);
-  margin-top: 5px;
-}
-
-.app .chapter-tools {
-  display: flex;
-  align-items: center;
-}
-
-.app .chapter-body {
-  padding: 0 18px 20px;
-}
-
-/* =========================================================
-   29. FORM FIELDS
-   ========================================================= */
-
-.app .field {
-  display: block;
-
-  margin: 17px 0;
-
-  color: var(--ink);
-
-  font-size: 14px;
-  font-weight: 700;
-}
-
-.app .inputwrap {
-  display: flex;
-  align-items: center;
-
-  margin-top: 7px;
-  padding: 0 13px;
-
-  background: var(--input);
-  color: var(--ink);
-
-  border: 1px solid var(--border);
-  border-radius: 16px;
-
   transition:
-    border-color .2s ease,
-    box-shadow .2s ease;
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
 }
 
-.app .inputwrap:focus-within {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(94, 75, 139, .10);
+.app.dark .card,
+.app.dark .study-card,
+.app.dark .panel,
+.app.dark .settings-card,
+.app.dark .content-card,
+.app.dark .character-card,
+.app.dark .journal-card,
+.app.dark .tracker-card {
+  background: #25222c !important;
+  border-color: #403a4b !important;
 }
 
-.app .inputwrap svg {
-  flex: none;
-  color: var(--accent);
-}
-
-.app .inputwrap input,
-.app .inputwrap textarea {
-  width: 100%;
-  min-width: 0;
-
-  padding: 13px 10px;
-
-  border: 0;
-  outline: 0;
-
-  background: transparent;
-  color: var(--ink);
-
-  font-size: 14px;
-}
-
-.app .inputwrap input::placeholder,
-.app .inputwrap textarea::placeholder {
-  color: var(--hint);
-}
-
-.app .inputwrap textarea {
-  min-height: 92px;
-  resize: vertical;
-}
 
 /* =========================================================
-   30. SUBHEAD
+   ICON BUTTONS
    ========================================================= */
 
-.app .subhead {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-
-  margin: 24px 0 4px;
-
-  color: var(--accent);
-
-  font-size: 15px;
-  font-weight: 800;
-}
-
-.app .subhead svg {
-  color: var(--accent);
-}
-
-/* =========================================================
-   31. RICH TEXT
-   ========================================================= */
-
-.app .rich-preview {
-  width: 100%;
-  min-height: 90px;
-
-  margin-top: 7px;
-  padding: 13px;
-
-  background: var(--input);
-  color: var(--ink);
-
-  border: 1px solid var(--border);
-  border-radius: 16px;
-
-  text-align: left;
-
-  font-size: 14px;
-}
-
-.app .rich-preview p {
-  color: var(--ink);
-}
-
-.app .rich-preview em {
-  color: var(--hint);
-  font-style: normal;
-}
-
-.app .rich-preview small {
-  display: block;
-  color: var(--hint);
-  margin-top: 9px;
-  font-size: 11px;
-}
-
-/* =========================================================
-   32. DIVIDERS
-   ========================================================= */
-
-.app hr {
-  border: 0;
-  border-top: 1px solid var(--border);
-  margin: 24px 0;
-}
-
-/* =========================================================
-   33. DETAILS
-   ========================================================= */
-
-.app details summary {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-
-  padding: 5px 0;
-
-  list-style: none;
-
-  color: var(--ink);
-  font-weight: 800;
-  cursor: pointer;
-}
-
-.app details summary::-webkit-details-marker {
-  display: none;
-}
-
-.app details summary svg {
-  color: var(--accent);
-}
-
-.app details summary small {
-  margin-left: auto;
-  color: var(--muted);
-  font-weight: 400;
-}
-
-/* =========================================================
-   34. EDITOR
-   ========================================================= */
-
-.app .editor-overlay {
-  position: fixed;
-  inset: 0;
-
-  z-index: 50;
-
-  display: grid;
-  place-items: center;
-
-  padding: 16px;
-
-  background: rgba(0, 0, 0, .55);
-}
-
-.app .editor-modal {
-  width: min(760px, 100%);
-  max-height: 90vh;
-
-  display: flex;
-  flex-direction: column;
-
-  padding: 15px;
-
-  background: var(--card);
-  color: var(--ink);
-
-  border-radius: 22px;
-
-  box-shadow: var(--shadow-lg);
-}
-
-.app .editor-title {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  padding-left: 8px;
-}
-
-.app .toolbar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 3px;
-
-  margin: 8px 0;
-  padding: 6px;
-
-  background: var(--toolbar);
-
-  border: 1px solid var(--border);
-  border-radius: 14px;
-}
-
-.app .toolbar button {
-  width: 34px;
-  height: 34px;
-
-  display: grid;
-  place-items: center;
-
-  border: 0;
-  border-radius: 8px;
-
-  background: transparent;
-  color: var(--ink);
-}
-
-.app .toolbar button:hover,
-.app .toolbar button.active {
+.icon-button,
+.icon-btn,
+.toolbar-button,
+.menu-button {
   background: var(--soft);
   color: var(--accent);
+  border: 1px solid transparent;
+  border-radius: 12px;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 
-.app .editor-area {
-  min-height: 300px;
+.icon-button:hover,
+.icon-btn:hover,
+.toolbar-button:hover,
+.menu-button:hover {
+  border-color: var(--border);
+  background: var(--card);
+}
 
-  overflow: auto;
+.app.dark .icon-button,
+.app.dark .icon-btn,
+.app.dark .toolbar-button,
+.app.dark .menu-button {
+  background: #3a3347 !important;
+  color: #bfa9e8 !important;
+  border-color: transparent !important;
+}
 
-  padding: 15px;
-  margin-bottom: 10px;
+.app.dark .icon-button:hover,
+.app.dark .icon-btn:hover,
+.app.dark .toolbar-button:hover,
+.app.dark .menu-button:hover {
+  background: #443c52 !important;
+  border-color: #51495e !important;
+}
 
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
+
+input,
+textarea,
+select,
+.input,
+.text-input,
+.textarea,
+.select {
+  background: var(--input);
+  color: var(--ink);
+  border: 1px solid var(--border);
+  border-radius: 12px;
   outline: none;
 
-  background: var(--input);
-  color: var(--ink);
-
-  border: 1px solid var(--border);
-  border-radius: 15px;
-
-  line-height: 1.6;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 
-.app .editor-area:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(94, 75, 139, .10);
-}
-
-/* =========================================================
-   35. SEARCH
-   ========================================================= */
-
-.app .searchbox {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-
-  padding: 5px 12px;
-  margin-bottom: 16px;
-
-  background: var(--card);
-  color: var(--ink);
-
-  border: 1px solid var(--border);
-  border-radius: 16px;
-}
-
-.app .searchbox:focus-within {
-  border-color: var(--accent);
-}
-
-.app .searchbox svg {
-  color: var(--accent);
-}
-
-.app .searchbox input {
-  flex: 1;
-
-  padding: 12px;
-
-  border: 0;
-  outline: 0;
-
-  background: transparent;
-  color: var(--ink);
-}
-
-.app .searchbox input::placeholder {
+input::placeholder,
+textarea::placeholder {
   color: var(--hint);
 }
 
-.app .searchbox button {
-  border: 0;
-  background: transparent;
-  color: var(--muted);
-}
-
-/* =========================================================
-   36. CALENDAR
-   ========================================================= */
-
-.app .cal-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.app .week,
-.app .calendar-grid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 6px;
-
-  text-align: center;
-}
-
-.app .week {
-  margin: 18px 0 8px;
-
-  color: var(--muted);
-
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.app .calendar-grid button,
-.app .calendar-grid span {
-  aspect-ratio: 1;
-
-  display: grid;
-  place-items: center;
-
-  border: 0;
-  border-radius: 12px;
-
-  background: transparent;
-  color: var(--ink);
-}
-
-.app .calendar-grid button:hover {
-  background: var(--soft);
-  color: var(--accent);
-}
-
-.app .calendar-grid .studied {
-  background: var(--soft);
-  color: var(--accent);
-  font-weight: 800;
-}
-
-/* =========================================================
-   37. NEW TESTAMENT
-   ========================================================= */
-
-.app .nt-book {
-  padding: 0;
-  overflow: hidden;
-}
-
-.app .nt-title {
-  width: 100%;
-
-  display: flex;
-  align-items: center;
-  gap: 12px;
-
-  padding: 15px;
-
-  border: 0;
-
-  background: transparent;
-  color: var(--ink);
-
-  text-align: left;
-}
-
-.app .nt-title small {
-  margin: 0;
-}
-
-.app .nt-title > svg {
-  margin-left: auto;
-}
-
-.app .circle {
-  width: 34px;
-  height: 34px;
-
-  display: grid;
-  place-items: center;
-
-  flex: none;
-
-  border-radius: 50%;
-
-  background: var(--soft);
-  color: var(--accent);
-
-  font-size: 12px;
-  font-weight: 800;
-}
-
-.app .chapter-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-
-  gap: 8px;
-
-  padding: 0 15px 15px;
-}
-
-.app .chapter-grid button {
-  aspect-ratio: 1;
-
-  border: 1px solid var(--border);
-  border-radius: 12px;
-
-  background: var(--input);
-  color: var(--ink);
-}
-
-.app .chapter-grid button:hover {
+input:focus,
+textarea:focus,
+select:focus,
+.input:focus,
+.text-input:focus,
+.textarea:focus,
+.select:focus {
   border-color: var(--accent);
-  background: var(--soft);
+  box-shadow: 0 0 0 3px var(--soft);
 }
 
-.app .chapter-grid button.chosen {
+.app.dark input,
+.app.dark textarea,
+.app.dark select,
+.app.dark .input,
+.app.dark .text-input,
+.app.dark .textarea,
+.app.dark .select {
+  background: #302b38 !important;
+  color: #f7f4fb !important;
+  border-color: #403a4b !important;
+}
+
+.app.dark input::placeholder,
+.app.dark textarea::placeholder {
+  color: #8f879b !important;
+}
+
+.app.dark input:focus,
+.app.dark textarea:focus,
+.app.dark select:focus {
+  border-color: #bfa9e8 !important;
+  box-shadow: 0 0 0 3px #3a3347 !important;
+}
+
+
+/* =========================================================
+   LABELS
+   ========================================================= */
+
+label,
+.form-label,
+.field-label {
+  color: var(--ink);
+}
+
+.app.dark label,
+.app.dark .form-label,
+.app.dark .field-label {
+  color: #f7f4fb !important;
+}
+
+
+/* =========================================================
+   PRIMARY BUTTON
+   ========================================================= */
+
+.primary-button,
+.btn-primary,
+button.primary {
   background: var(--accent);
-  color: var(--accent-text);
-  border-color: var(--accent);
+  color: #ffffff;
+  border: 1px solid var(--accent);
+  border-radius: 12px;
 }
+
+.primary-button:hover,
+.btn-primary:hover,
+button.primary:hover {
+  filter: brightness(0.95);
+}
+
+.app.dark .primary-button,
+.app.dark .btn-primary,
+.app.dark button.primary {
+  background: #bfa9e8 !important;
+  color: #211d28 !important;
+  border-color: #bfa9e8 !important;
+}
+
 
 /* =========================================================
-   38. SETTINGS
+   OUTLINE BUTTON
    ========================================================= */
 
-.app .setting {
-  display: flex;
-  align-items: center;
-  gap: 14px;
+.outline-button,
+.btn-outline,
+button.outline {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 12px;
 }
 
-.app .setting-icon {
-  width: 45px;
-  height: 45px;
-
-  flex: none;
-
-  display: grid;
-  place-items: center;
-
-  border-radius: 14px;
-
+.outline-button:hover,
+.btn-outline:hover,
+button.outline:hover {
   background: var(--soft);
+}
+
+.app.dark .outline-button,
+.app.dark .btn-outline,
+.app.dark button.outline {
+  color: #bfa9e8 !important;
+  border-color: #bfa9e8 !important;
+  background: transparent !important;
+}
+
+.app.dark .outline-button:hover,
+.app.dark .btn-outline:hover,
+.app.dark button.outline:hover {
+  background: #3a3347 !important;
+}
+
+
+/* =========================================================
+   SECONDARY / GHOST BUTTONS
+   ========================================================= */
+
+.secondary-button,
+.btn-secondary,
+.ghost-button,
+.btn-ghost {
+  background: var(--soft);
+  color: var(--ink);
+  border: 1px solid transparent;
+  border-radius: 12px;
+}
+
+.app.dark .secondary-button,
+.app.dark .btn-secondary,
+.app.dark .ghost-button,
+.app.dark .btn-ghost {
+  background: #3a3347 !important;
+  color: #f7f4fb !important;
+}
+
+
+/* =========================================================
+   ANSWER / PREVIEW AREAS
+   ========================================================= */
+
+.answer,
+.answer-preview,
+.preview,
+.preview-box,
+.result-box {
+  background: var(--soft);
+  color: var(--ink);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.app.dark .answer,
+.app.dark .answer-preview,
+.app.dark .preview,
+.app.dark .preview-box,
+.app.dark .result-box {
+  background: #302b38 !important;
+  color: #f7f4fb !important;
+  border-color: #403a4b !important;
+}
+
+
+/* =========================================================
+   TOOLBAR
+   ========================================================= */
+
+.toolbar,
+.editor-toolbar,
+.action-bar {
+  background: var(--toolbar);
+  color: var(--ink);
+  border-color: var(--border);
+}
+
+.app.dark .toolbar,
+.app.dark .editor-toolbar,
+.app.dark .action-bar {
+  background: #302b38 !important;
+  color: #f7f4fb !important;
+  border-color: #403a4b !important;
+}
+
+
+/* =========================================================
+   PROGRESS
+   ========================================================= */
+
+.progress,
+.progress-track,
+.progress-bar-container {
+  background: var(--soft);
+}
+
+.progress-bar {
+  background: var(--accent);
+}
+
+.app.dark .progress,
+.app.dark .progress-track,
+.app.dark .progress-bar-container {
+  background: #3a3347 !important;
+}
+
+.app.dark .progress-bar {
+  background: #bfa9e8 !important;
+}
+
+
+/* =========================================================
+   CHECKBOXES
+   ========================================================= */
+
+input[type="checkbox"] {
+  accent-color: var(--accent);
+}
+
+.app.dark input[type="checkbox"] {
+  accent-color: #bfa9e8;
+}
+
+
+/* =========================================================
+   RADIO BUTTONS
+   ========================================================= */
+
+input[type="radio"] {
+  accent-color: var(--accent);
+}
+
+.app.dark input[type="radio"] {
+  accent-color: #bfa9e8;
+}
+
+
+/* =========================================================
+   BOTTOM NAVIGATION
+   ========================================================= */
+
+.bottom-nav,
+.bottom-navigation,
+.nav-bar,
+.mobile-nav {
+  background: var(--card) !important;
+  color: var(--ink);
+  border-top: 1px solid var(--border);
+}
+
+.bottom-nav *,
+.bottom-navigation *,
+.nav-bar *,
+.mobile-nav * {
+  color: inherit;
+}
+
+.app.dark .bottom-nav,
+.app.dark .bottom-navigation,
+.app.dark .nav-bar,
+.app.dark .mobile-nav {
+  background: #25222c !important;
+  color: #f7f4fb !important;
+  border-color: #403a4b !important;
+}
+
+.nav-item,
+.bottom-nav-item {
+  color: var(--muted);
+}
+
+.nav-item.active,
+.bottom-nav-item.active {
   color: var(--accent);
 }
 
+.app.dark .nav-item,
+.app.dark .bottom-nav-item {
+  color: #b9b2c4 !important;
+}
+
+.app.dark .nav-item.active,
+.app.dark .bottom-nav-item.active {
+  color: #bfa9e8 !important;
+}
+
+
 /* =========================================================
-   39. LIGHT / DARK TOGGLE
+   MENUS / DROPDOWNS
    ========================================================= */
 
-.app .mode-toggle {
-  min-height: 44px;
+.menu,
+.dropdown,
+.dropdown-menu,
+.popover {
+  background: var(--card);
+  color: var(--ink);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
 
+.app.dark .menu,
+.app.dark .dropdown,
+.app.dark .dropdown-menu,
+.app.dark .popover {
+  background: #25222c !important;
+  color: #f7f4fb !important;
+  border-color: #403a4b !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.menu-item,
+.dropdown-item {
+  color: var(--ink);
+}
+
+.menu-item:hover,
+.dropdown-item:hover {
+  background: var(--soft);
+}
+
+.app.dark .menu-item,
+.app.dark .dropdown-item {
+  color: #f7f4fb !important;
+}
+
+.app.dark .menu-item:hover,
+.app.dark .dropdown-item:hover {
+  background: #3a3347 !important;
+}
+
+
+/* =========================================================
+   SETTINGS
+   ========================================================= */
+
+.settings,
+.settings-page,
+.settings-section {
+  color: var(--ink);
+}
+
+.settings-title {
+  color: var(--ink);
+}
+
+.settings-description,
+.settings-subtitle {
+  color: var(--muted);
+}
+
+.app.dark .settings-title,
+.app.dark .settings h1,
+.app.dark .settings h2,
+.app.dark .settings h3 {
+  color: #f7f4fb !important;
+}
+
+.app.dark .settings-description,
+.app.dark .settings-subtitle {
+  color: #b9b2c4 !important;
+}
+
+
+/* =========================================================
+   LIGHT / DARK MODE TOGGLE
+   ========================================================= */
+
+.mode-toggle {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
 
-  padding: 0 13px;
+  min-height: 42px;
+  padding: 8px 14px;
 
   background: var(--soft);
-  color: var(--ink);
+  color: var(--accent);
 
   border: 1px solid var(--border);
-  border-radius: 13px;
+  border-radius: 12px;
 
-  font-size: 13px;
-  font-weight: 700;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 
-.app .mode-toggle:hover {
-  background: var(--accent);
-  color: var(--accent-text);
-  border-color: var(--accent);
+.mode-toggle:hover {
+  background: var(--card);
 }
 
-.app .mode-toggle svg {
+.mode-toggle svg {
   width: 18px;
   height: 18px;
 }
 
+.mode-toggle.is-dark {
+  background: #3a3347;
+  color: #bfa9e8;
+  border-color: #51495e;
+}
+
+.mode-toggle.is-dark:hover {
+  background: #443c52;
+}
+
+
 /* =========================================================
-   40. THEME OPTIONS
+   THEME SELECTOR
    ========================================================= */
 
-.app .theme-option {
-  width: 100%;
+.theme-selector,
+.theme-picker,
+.theme-options {
+  color: var(--ink);
+}
 
-  display: flex;
-  align-items: center;
-  gap: 12px;
-
-  padding: 12px;
-
+.theme-option {
   background: var(--card);
   color: var(--ink);
-
   border: 1px solid var(--border);
-  border-radius: 18px;
-
-  text-align: left;
+  border-radius: 14px;
 }
 
-.app .theme-option:hover {
-  background: var(--card-2);
-  border-color: var(--accent);
-}
-
-.app .theme-option.selected {
-  border: 2px solid var(--accent);
-  padding: 11px;
-
+.theme-option:hover {
   background: var(--soft);
 }
 
-.app .theme-swatch {
-  width: 48px;
-  height: 48px;
+.theme-option.active,
+.theme-option.selected {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--soft);
+}
 
-  flex: none;
+.app.dark .theme-option {
+  background: #25222c !important;
+  color: #f7f4fb !important;
+  border-color: #403a4b !important;
+}
 
-  display: grid;
-  place-items: center;
+.app.dark .theme-option:hover {
+  background: #3a3347 !important;
+}
 
-  border-radius: 14px;
+.app.dark .theme-option.active,
+.app.dark .theme-option.selected {
+  border-color: #bfa9e8 !important;
+  box-shadow: 0 0 0 2px #3a3347 !important;
+}
 
+
+/* =========================================================
+   CALENDAR
+   ========================================================= */
+
+.calendar,
+.calendar-container {
+  background: var(--card);
+  color: var(--ink);
   border: 1px solid var(--border);
 }
 
-.app .theme-swatch span {
-  font-size: 22px;
-}
-
-.app .theme-swatch-warm {
-  background: linear-gradient(135deg, #f6f0e7 50%, #8a5a3b 50%);
-}
-
-.app .theme-swatch-sage {
-  background: linear-gradient(135deg, #f2f6f1 50%, #5d8062 50%);
-}
-
-.app .theme-swatch-navy {
-  background: linear-gradient(135deg, #f2f4f8 50%, #29466f 50%);
-}
-
-.app .theme-swatch-midnight {
-  background: linear-gradient(135deg, #f4f1ea 50%, #292722 50%);
-}
-
-.app .theme-swatch-blue {
-  background: linear-gradient(135deg, #eef7fb 50%, #5c91a8 50%);
-}
-
-.app .theme-swatch-terracotta {
-  background: linear-gradient(135deg, #f8f0ea 50%, #b96548 50%);
-}
-
-.app .theme-swatch-plum {
-  background: linear-gradient(135deg, #f8f7f3 50%, #5e4b8b 50%);
-}
-
-.app .theme-copy {
-  flex: 1;
-  min-width: 0;
-
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-}
-
-.app .theme-copy b {
+.calendar-header {
   color: var(--ink);
-  font-size: 14px;
 }
 
-.app .theme-copy small {
-  color: var(--muted);
-  font-size: 11px;
-}
-
-.app .theme-check {
-  display: grid;
-  place-items: center;
-
-  color: var(--accent);
-}
-
-/* =========================================================
-   41. LIST ROWS
-   ========================================================= */
-
-.app .list-row {
-  width: 100%;
-
-  display: flex;
-  align-items: center;
-  gap: 12px;
-
-  padding: 11px 0;
-
-  border: 0;
-
+.calendar-day {
+  color: var(--ink);
   background: transparent;
-  color: var(--ink);
-
-  text-align: left;
 }
 
-.app .list-row:hover {
-  color: var(--accent);
+.calendar-day:hover {
+  background: var(--soft);
 }
 
-.app .list-row svg {
-  flex: none;
-  color: var(--accent);
+.calendar-day.today {
+  border-color: var(--accent);
 }
+
+.calendar-day.selected {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.app.dark .calendar,
+.app.dark .calendar-container {
+  background: #25222c !important;
+  color: #f7f4fb !important;
+  border-color: #403a4b !important;
+}
+
+.app.dark .calendar-day {
+  color: #f7f4fb !important;
+}
+
+.app.dark .calendar-day:hover {
+  background: #3a3347 !important;
+}
+
+.app.dark .calendar-day.selected {
+  background: #bfa9e8 !important;
+  color: #211d28 !important;
+}
+
 
 /* =========================================================
-   42. SMALL TEXT
+   NEW TESTAMENT TRACKER
    ========================================================= */
 
-.app .reading small,
-.app .setting small,
-.app .recent small,
-.app .date-card small,
-.app .nt-title small,
-.app .card > small {
-  display: block;
-
-  margin-top: 5px;
-
-  color: var(--muted);
+.nt-tracker,
+.bible-tracker,
+.book-tracker {
+  background: var(--card);
+  color: var(--ink);
+  border-color: var(--border);
 }
 
-.app .danger,
-.app .text-danger {
+.nt-book {
+  background: var(--input);
+  color: var(--ink);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.nt-book.completed,
+.bible-book.completed {
+  background: var(--soft);
+  border-color: var(--accent);
+}
+
+.app.dark .nt-tracker,
+.app.dark .bible-tracker,
+.app.dark .book-tracker {
+  background: #25222c !important;
+  color: #f7f4fb !important;
+}
+
+.app.dark .nt-book {
+  background: #302b38 !important;
+  color: #f7f4fb !important;
+  border-color: #403a4b !important;
+}
+
+.app.dark .nt-book.completed,
+.app.dark .bible-book.completed {
+  background: #3a3347 !important;
+  border-color: #bfa9e8 !important;
+}
+
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+.search-box,
+.search-container {
+  background: var(--input);
+  border: 1px solid var(--border);
+  color: var(--ink);
+  border-radius: 14px;
+}
+
+.search-box input,
+.search-container input {
+  background: transparent;
+  border: 0;
+  color: var(--ink);
+  box-shadow: none;
+}
+
+.app.dark .search-box,
+.app.dark .search-container {
+  background: #302b38 !important;
+  border-color: #403a4b !important;
+}
+
+.app.dark .search-box input,
+.app.dark .search-container input {
+  color: #f7f4fb !important;
+}
+
+
+/* =========================================================
+   EDITOR / JOURNAL
+   ========================================================= */
+
+.editor,
+.journal,
+.journal-editor,
+.study-editor {
+  background: var(--card);
+  color: var(--ink);
+  border-color: var(--border);
+}
+
+.editor textarea,
+.journal textarea,
+.journal-editor textarea,
+.study-editor textarea {
+  background: var(--input);
+  color: var(--ink);
+}
+
+.app.dark .editor,
+.app.dark .journal,
+.app.dark .journal-editor,
+.app.dark .study-editor {
+  background: #25222c !important;
+  color: #f7f4fb !important;
+  border-color: #403a4b !important;
+}
+
+.app.dark .editor textarea,
+.app.dark .journal textarea,
+.app.dark .journal-editor textarea,
+.app.dark .study-editor textarea {
+  background: #302b38 !important;
+  color: #f7f4fb !important;
+}
+
+
+/* =========================================================
+   DIVIDERS
+   ========================================================= */
+
+hr,
+.divider,
+.separator {
+  border: 0;
+  border-top: 1px solid var(--border);
+}
+
+.app.dark hr,
+.app.dark .divider,
+.app.dark .separator {
+  border-color: #403a4b !important;
+}
+
+
+/* =========================================================
+   BADGES
+   ========================================================= */
+
+.badge,
+.tag,
+.chip {
+  background: var(--soft);
+  color: var(--accent);
+  border: 1px solid transparent;
+}
+
+.app.dark .badge,
+.app.dark .tag,
+.app.dark .chip {
+  background: #3a3347 !important;
+  color: #bfa9e8 !important;
+}
+
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+.app a {
+  color: var(--accent);
+}
+
+.app.dark a {
+  color: #bfa9e8 !important;
+}
+
+
+/* =========================================================
+   DANGER
+   ========================================================= */
+
+.danger,
+.danger-button,
+.delete-button {
   color: var(--danger);
 }
 
-/* =========================================================
-   43. BACKUP / EXPORT
-   ========================================================= */
-
-.app .backupbox {
-  width: 100%;
-  min-height: 190px;
-
-  padding: 14px;
-
-  resize: vertical;
-
-  background: var(--input);
-  color: var(--ink);
-
-  border: 1px solid var(--border);
-  border-radius: 16px;
-
-  outline: none;
-
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 13px;
+.danger-button {
+  border: 1px solid var(--danger);
+  background: transparent;
+  border-radius: 12px;
 }
 
-.app .backupbox:focus {
-  border-color: var(--accent);
+.danger-button:hover {
+  background: rgba(180, 71, 82, 0.08);
 }
 
-.app .backupbox::placeholder {
-  color: var(--hint);
+.app.dark .danger-button {
+  color: #f08b96 !important;
+  border-color: #f08b96 !important;
 }
+
+.app.dark .danger-button:hover {
+  background: rgba(240, 139, 150, 0.1) !important;
+}
+
 
 /* =========================================================
-   44. MODALS
+   TOAST / NOTIFICATIONS
    ========================================================= */
 
-.app .modal,
-.app .dialog,
-.app .modal-content {
+.toast,
+.notification,
+.alert {
   background: var(--card);
   color: var(--ink);
-
-  border-color: var(--border);
-
-  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
+.app.dark .toast,
+.app.dark .notification,
+.app.dark .alert {
+  background: #25222c !important;
+  color: #f7f4fb !important;
+  border-color: #403a4b !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+
 /* =========================================================
-   45. GENERIC INPUTS
+   MODALS
    ========================================================= */
 
-.app input,
-.app textarea,
-.app select {
+.modal-overlay,
+.overlay {
+  background: rgba(20, 18, 25, 0.45);
+}
+
+.modal,
+.dialog {
+  background: var(--card);
   color: var(--ink);
-
-  background: var(--input);
-
-  border-color: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 18px;
 }
 
-.app input::placeholder,
-.app textarea::placeholder {
-  color: var(--hint);
+.app.dark .modal,
+.app.dark .dialog {
+  background: #25222c !important;
+  color: #f7f4fb !important;
+  border-color: #403a4b !important;
 }
 
-.app input:focus,
-.app textarea:focus,
-.app select:focus {
-  outline: none;
-  border-color: var(--accent);
-}
 
 /* =========================================================
-   46. CHECKBOXES / RADIOS
+   SCROLLBARS
    ========================================================= */
 
-.app input[type="checkbox"],
-.app input[type="radio"] {
-  accent-color: var(--accent);
+.app ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
 }
 
-/* =========================================================
-   47. TOAST
-   ========================================================= */
-
-.app .toast {
-  position: fixed;
-
-  left: 50%;
-  bottom: 92px;
-
-  z-index: 70;
-
-  transform: translateX(-50%);
-
-  max-width: calc(100% - 32px);
-
-  padding: 12px 17px;
-
-  background: var(--ink);
-  color: var(--bg);
-
-  border-radius: 12px;
-
-  font-size: 13px;
-
-  box-shadow: var(--shadow-lg);
+.app ::-webkit-scrollbar-track {
+  background: transparent;
 }
 
-/* =========================================================
-   48. FOCUS ACCESSIBILITY
-   ========================================================= */
-
-.app button:focus-visible,
-.app input:focus-visible,
-.app textarea:focus-visible,
-.app select:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
+.app ::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 10px;
 }
 
-/* =========================================================
-   49. SMOOTH THEME TRANSITION
-   ========================================================= */
-
-.app,
-.app .topbar,
-.app .bottom,
-.app .card,
-.app .recent,
-.app .nt-card,
-.app .date-card,
-.app .inputwrap,
-.app .searchbox,
-.app .theme-option,
-.app .editor-modal,
-.app .editor-area,
-.app .toolbar,
-.app .menu,
-.app .chapter-grid button,
-.app .chapter-head {
-  transition:
-    background-color .25s ease,
-    color .25s ease,
-    border-color .25s ease,
-    box-shadow .25s ease;
+.app ::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
 }
 
+.app.dark ::-webkit-scrollbar-thumb {
+  background: #403a4b;
+}
+
+.app.dark ::-webkit-scrollbar-thumb:hover {
+  background: #5a5265;
+}
+
+
 /* =========================================================
-   50. MOBILE
+   THEME 1 — WARM BIBLE
    ========================================================= */
 
-@media (max-width: 650px) {
+.app.theme-warm {
+  --accent: #5e4b8b;
+  --soft: #e9e3f3;
+  --purple: #5e4b8b;
+}
 
-  .app {
-    padding-bottom: 82px;
+
+/* =========================================================
+   THEME 2 — SAGE
+   ========================================================= */
+
+.app.theme-sage {
+  --accent: #58705c;
+  --soft: #e3ebe4;
+  --purple: #58705c;
+}
+
+.app.dark.theme-sage {
+  --accent: #a8c9ad;
+  --soft: #35453a;
+  --purple: #a8c9ad;
+}
+
+
+/* =========================================================
+   THEME 3 — NAVY & GOLD
+   ========================================================= */
+
+.app.theme-navy {
+  --accent: #233f67;
+  --soft: #e5ebf3;
+  --purple: #233f67;
+}
+
+.app.dark.theme-navy {
+  --accent: #d8bb72;
+  --soft: #3d3728;
+  --purple: #d8bb72;
+}
+
+
+/* =========================================================
+   THEME 4 — MIDNIGHT GOLD
+   ========================================================= */
+
+.app.theme-midnight {
+  --accent: #8b6f2f;
+  --soft: #eee7d7;
+  --purple: #8b6f2f;
+}
+
+.app.dark.theme-midnight {
+  --accent: #d8bb72;
+  --soft: #3b3424;
+  --purple: #d8bb72;
+}
+
+
+/* =========================================================
+   THEME 5 — PEACEFUL BLUE
+   ========================================================= */
+
+.app.theme-blue {
+  --accent: #527a96;
+  --soft: #e3edf2;
+  --purple: #527a96;
+}
+
+.app.dark.theme-blue {
+  --accent: #9bc3da;
+  --soft: #30414c;
+  --purple: #9bc3da;
+}
+
+
+/* =========================================================
+   THEME 6 — TERRACOTTA
+   ========================================================= */
+
+.app.theme-terracotta {
+  --accent: #a35f4e;
+  --soft: #f0e3de;
+  --purple: #a35f4e;
+}
+
+.app.dark.theme-terracotta {
+  --accent: #d99a86;
+  --soft: #49332e;
+  --purple: #d99a86;
+}
+
+
+/* =========================================================
+   THEME 7 — CLASSIC PLUM
+   ========================================================= */
+
+.app.theme-plum {
+  --accent: #704f78;
+  --soft: #ebe3ed;
+  --purple: #704f78;
+}
+
+.app.dark.theme-plum {
+  --accent: #c9a9d0;
+  --soft: #3e3341;
+  --purple: #c9a9d0;
+}
+
+
+/* =========================================================
+   DARK MODE — KEEP THE 7 THEMES BUT CHANGE ONLY COLORS
+   ========================================================= */
+
+.app.dark.theme-warm {
+  --bg: #19171e;
+  --card: #25222c;
+  --ink: #f7f4fb;
+  --muted: #b9b2c4;
+  --border: #403a4b;
+  --input: #302b38;
+  --toolbar: #302b38;
+}
+
+.app.dark.theme-sage {
+  --bg: #181d19;
+  --card: #252d27;
+  --ink: #f3f7f3;
+  --muted: #b5c0b7;
+  --border: #3d4a40;
+  --input: #303a33;
+  --toolbar: #303a33;
+}
+
+.app.dark.theme-navy {
+  --bg: #171b24;
+  --card: #242b38;
+  --ink: #f4f6fa;
+  --muted: #b4bdcc;
+  --border: #3d4657;
+  --input: #2e3644;
+  --toolbar: #2e3644;
+}
+
+.app.dark.theme-midnight {
+  --bg: #1c1a16;
+  --card: #2a2720;
+  --ink: #f7f3e9;
+  --muted: #c0b9a9;
+  --border: #494332;
+  --input: #353126;
+  --toolbar: #353126;
+}
+
+.app.dark.theme-blue {
+  --bg: #171d21;
+  --card: #242d32;
+  --ink: #f2f7fa;
+  --muted: #b4c0c7;
+  --border: #3d4a51;
+  --input: #2e393f;
+  --toolbar: #2e393f;
+}
+
+.app.dark.theme-terracotta {
+  --bg: #211a18;
+  --card: #302522;
+  --ink: #faf4f1;
+  --muted: #c6b6b0;
+  --border: #51403b;
+  --input: #3b302c;
+  --toolbar: #3b302c;
+}
+
+.app.dark.theme-plum {
+  --bg: #1d181f;
+  --card: #2b232e;
+  --ink: #f8f3fa;
+  --muted: #c0b3c3;
+  --border: #493b4d;
+  --input: #362c39;
+  --toolbar: #362c39;
+}
+
+
+/* =========================================================
+   THEME-AWARE DARK COMPONENT COLORS
+   ========================================================= */
+
+.app.dark.theme-sage .primary-button,
+.app.dark.theme-sage .btn-primary {
+  background: #a8c9ad !important;
+  border-color: #a8c9ad !important;
+}
+
+.app.dark.theme-navy .primary-button,
+.app.dark.theme-navy .btn-primary {
+  background: #d8bb72 !important;
+  border-color: #d8bb72 !important;
+}
+
+.app.dark.theme-midnight .primary-button,
+.app.dark.theme-midnight .btn-primary {
+  background: #d8bb72 !important;
+  border-color: #d8bb72 !important;
+}
+
+.app.dark.theme-blue .primary-button,
+.app.dark.theme-blue .btn-primary {
+  background: #9bc3da !important;
+  border-color: #9bc3da !important;
+}
+
+.app.dark.theme-terracotta .primary-button,
+.app.dark.theme-terracotta .btn-primary {
+  background: #d99a86 !important;
+  border-color: #d99a86 !important;
+}
+
+.app.dark.theme-plum .primary-button,
+.app.dark.theme-plum .btn-primary {
+  background: #c9a9d0 !important;
+  border-color: #c9a9d0 !important;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .card,
+  .study-card,
+  .panel,
+  .settings-card,
+  .content-card {
+    border-radius: 16px;
   }
 
-  .app .content {
-    padding: 18px 16px;
+  .mode-toggle {
+    min-height: 40px;
+    padding: 7px 12px;
   }
+}
 
-  .app .topbar {
-    height: 64px;
-    padding: 0 12px;
-  }
-
-  .app .brand {
-    font-size: 19px;
-  }
-
-  .app .mobile-menu {
-    display: inline-grid;
-  }
-
-  .app .top-actions .iconbtn:first-child {
+@media (max-width: 480px) {
+  .mode-toggle span:last-child {
     display: none;
   }
 
-  .app .menu {
-    left: 12px;
-    right: 12px;
-
-    width: auto;
-
-    top: 60px;
-  }
-
-  .app .bottom {
-    height: 72px;
-  }
-
-  .app .bottom button {
-    width: 20%;
-  }
-
-  .app .stats {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .app .stat {
-    min-height: 105px;
-  }
-
-  .app .stat b {
-    font-size: 21px;
-  }
-
-  .app .chapter-grid {
-    gap: 7px;
-  }
-
-  .app .today-card {
-    padding: 26px 14px;
-  }
-
-  .app .editor-overlay {
-    padding: 0;
-  }
-
-  .app .editor-modal {
-    width: 100%;
-    height: 100%;
-    max-height: none;
-
-    border-radius: 0;
-  }
-
-  .app .editor-area {
-    flex: 1;
-  }
-
-  .app .theme-option {
-    padding: 11px;
+  .mode-toggle {
+    width: 42px;
+    padding: 8px;
   }
 }
 
+
 /* =========================================================
-   51. DESKTOP
+   SMOOTH THEME TRANSITION
    ========================================================= */
 
-@media (min-width: 650px) {
-
-  .app .theme-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-  }
+.app,
+.app *,
+.app *::before,
+.app *::after {
+  transition-property:
+    background-color,
+    border-color,
+    color,
+    box-shadow;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
 }
 
+
 /* =========================================================
-   END
+   IMPORTANT:
+   DO NOT USE "filter", "opacity", OR A GLOBAL DARK OVERLAY
+   FOR DARK MODE.
    ========================================================= */
+
+.app.dark {
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+.app.light {
+  filter: none !important;
+  opacity: 1 !important;
+}
