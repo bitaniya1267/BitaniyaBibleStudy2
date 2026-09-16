@@ -32,7 +32,7 @@ const save = (k,v) => localStorage.setItem(k,JSON.stringify(v));
 function formatDate(s){ if(!s)return ""; const [y,m,d]=s.split("-"); return `${d}/${m}/${y}`; }
 
 function App(){
- const [dark,setDark] = useState(()=>load("bbs_dark",false));
+ const [dark,setDark] = useState(false);
  const [theme,setTheme] = useState(()=>load("bbs_theme","warm"));
  const [days,setDays] = useState(()=>load("bbs_days",[]));
  const [nt,setNt] = useState(()=>load("bbs_nt",{}));
