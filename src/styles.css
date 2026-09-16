@@ -2,24 +2,13 @@
 
 /* =========================================================
    BITANIYA BIBLE STUDY
-   Complete Light / Dark + Theme CSS
+   CLEAN COMPLETE DESIGN SYSTEM
+   LIGHT / DARK + 7 THEMES
    ========================================================= */
 
-:root {
-  --bg: #F8F7F3;
-  --card: #FFFFFF;
-  --ink: #252331;
-  --muted: #6E6878;
-  --hint: #AAA4B0;
-  --border: #E5E1E8;
-  --input: #F7F5F8;
-  --accent: #5E4B8B;
-  --soft: #E9E3F3;
-  --toolbar: #F3F0F6;
-  --danger: #A84E58;
-}
-
-/* ---------- Base ---------- */
+/* =========================================================
+   1. GLOBAL RESET
+   ========================================================= */
 
 * {
   box-sizing: border-box;
@@ -29,101 +18,416 @@ html,
 body,
 #root {
   margin: 0;
-  min-height: 100%;
+  padding: 0;
   width: 100%;
+  min-height: 100%;
 }
 
 body {
-  background: #F8F7F3;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  background: #f8f7f3;
   color: #252331;
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 button,
 input,
-textarea {
-  font-family: inherit;
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+}
+
+img,
+svg {
+  max-width: 100%;
 }
 
 /* =========================================================
-   APP MODES
-   ========================================================= */
-
-/* LIGHT MODE */
-.app.light {
-  --bg: #F8F7F3;
-  --card: #FFFFFF;
-  --ink: #252331;
-  --muted: #6E6878;
-  --hint: #AAA4B0;
-  --border: #E5E1E8;
-  --input: #F7F5F8;
-  --accent: #5E4B8B;
-  --soft: #E9E3F3;
-  --toolbar: #F3F0F6;
-  --danger: #A84E58;
-
-  background: var(--bg);
-  color: var(--ink);
-}
-
-/* DARK MODE */
-.app.dark {
-  --bg: #19171E;
-  --card: #24212A;
-  --ink: #F4F1F7;
-  --muted: #B6AFBD;
-  --hint: #817A88;
-  --border: #383340;
-  --input: #2B2732;
-  --accent: #B9A5E7;
-  --soft: #3A3148;
-  --toolbar: #302B38;
-  --danger: #ED8D97;
-
-  background: var(--bg);
-  color: var(--ink);
-}
-
-/* =========================================================
-   APP CONTAINER
+   2. MASTER APP VARIABLES
    ========================================================= */
 
 .app {
+  --bg: #f8f7f3;
+  --card: #ffffff;
+  --card-2: #faf9fc;
+
+  --ink: #252331;
+  --muted: #6e6878;
+  --hint: #aaa4b0;
+
+  --border: #e4e0e8;
+  --input: #f7f5f8;
+  --soft: #e9e3f3;
+  --toolbar: #f1eef5;
+
+  --accent: #5e4b8b;
+  --accent-hover: #4e3d76;
+  --accent-text: #ffffff;
+
+  --danger: #a84e58;
+  --success: #4f805e;
+  --warning: #9b7537;
+
+  --shadow-sm: 0 2px 8px rgba(40, 30, 55, .05);
+  --shadow: 0 8px 25px rgba(40, 30, 55, .08);
+  --shadow-lg: 0 18px 50px rgba(20, 15, 30, .15);
+
   min-height: 100vh;
+  width: 100%;
+
   background: var(--bg);
   color: var(--ink);
-  padding-bottom: 88px;
+
   transition:
-    background-color 0.2s ease,
-    color 0.2s ease;
+    background-color .25s ease,
+    color .25s ease;
 }
 
 /* =========================================================
-   TOP BAR
+   3. DARK MODE BASE
    ========================================================= */
 
-.topbar {
+.app.dark {
+  --bg: #15121b;
+  --card: #211d29;
+  --card-2: #27222f;
+
+  --ink: #f7f4fb;
+  --muted: #b8b1c2;
+  --hint: #8e8799;
+
+  --border: #3b3545;
+  --input: #292431;
+  --soft: #342b40;
+  --toolbar: #2b2534;
+
+  --accent: #bfa9e8;
+  --accent-hover: #d0bef1;
+  --accent-text: #211d29;
+
+  --danger: #f08b96;
+  --success: #8ac69a;
+  --warning: #d6b56b;
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, .20);
+  --shadow: 0 8px 28px rgba(0, 0, 0, .28);
+  --shadow-lg: 0 18px 55px rgba(0, 0, 0, .45);
+}
+
+/* =========================================================
+   4. WARM BIBLE
+   ========================================================= */
+
+.app.light.theme-warm {
+  --bg: #f6f0e7;
+  --card: #fffdf8;
+  --card-2: #faf5ee;
+  --ink: #2e261f;
+  --muted: #756a60;
+  --hint: #a89b8e;
+  --border: #ded2c5;
+  --input: #f5eee5;
+  --soft: #eadccb;
+  --toolbar: #f0e7dc;
+  --accent: #8a5a3b;
+  --accent-hover: #744a30;
+  --accent-text: #ffffff;
+}
+
+.app.dark.theme-warm {
+  --bg: #1d1814;
+  --card: #29221d;
+  --card-2: #322923;
+  --ink: #f7efe5;
+  --muted: #c2b4a7;
+  --hint: #8f8175;
+  --border: #493c33;
+  --input: #302720;
+  --soft: #49372b;
+  --toolbar: #382d25;
+  --accent: #d6a06f;
+  --accent-hover: #e2b285;
+  --accent-text: #291f19;
+}
+
+/* =========================================================
+   5. SAGE
+   ========================================================= */
+
+.app.light.theme-sage {
+  --bg: #f2f6f1;
+  --card: #ffffff;
+  --card-2: #f8faf7;
+  --ink: #243026;
+  --muted: #667166;
+  --hint: #9aa59a;
+  --border: #d8e0d7;
+  --input: #f1f5f0;
+  --soft: #dde9de;
+  --toolbar: #eaf1ea;
+  --accent: #5d8062;
+  --accent-hover: #4b6c50;
+  --accent-text: #ffffff;
+}
+
+.app.dark.theme-sage {
+  --bg: #171c18;
+  --card: #232a24;
+  --card-2: #29322a;
+  --ink: #eef5ee;
+  --muted: #b4c0b5;
+  --hint: #7f8d81;
+  --border: #39443a;
+  --input: #2a322b;
+  --soft: #344438;
+  --toolbar: #303b32;
+  --accent: #9bc3a0;
+  --accent-hover: #afd2b3;
+  --accent-text: #182019;
+}
+
+/* =========================================================
+   6. NAVY & GOLD
+   ========================================================= */
+
+.app.light.theme-navy {
+  --bg: #f2f4f8;
+  --card: #ffffff;
+  --card-2: #f8f9fb;
+  --ink: #202a3a;
+  --muted: #687386;
+  --hint: #9aa4b3;
+  --border: #d8dee8;
+  --input: #f1f3f7;
+  --soft: #e5eaf2;
+  --toolbar: #ebeef4;
+  --accent: #29466f;
+  --accent-hover: #1f385a;
+  --accent-text: #ffffff;
+}
+
+.app.dark.theme-navy {
+  --bg: #151a23;
+  --card: #202938;
+  --card-2: #273243;
+  --ink: #f1f4f9;
+  --muted: #b2bbc9;
+  --hint: #7e899a;
+  --border: #354154;
+  --input: #283243;
+  --soft: #303c50;
+  --toolbar: #2a3547;
+  --accent: #d4b66c;
+  --accent-hover: #e3c981;
+  --accent-text: #171c25;
+}
+
+/* =========================================================
+   7. MIDNIGHT GOLD
+   ========================================================= */
+
+.app.light.theme-midnight {
+  --bg: #f4f1ea;
+  --card: #fffefa;
+  --card-2: #faf8f2;
+  --ink: #25231f;
+  --muted: #716d64;
+  --hint: #a29c91;
+  --border: #ddd8cc;
+  --input: #f3f0e9;
+  --soft: #e9e4d9;
+  --toolbar: #efebe2;
+  --accent: #a47b38;
+  --accent-hover: #89652c;
+  --accent-text: #ffffff;
+}
+
+.app.dark.theme-midnight {
+  --bg: #111110;
+  --card: #1d1c19;
+  --card-2: #24231f;
+  --ink: #f5f0e5;
+  --muted: #bdb7aa;
+  --hint: #827c71;
+  --border: #38352f;
+  --input: #27251f;
+  --soft: #373329;
+  --toolbar: #2d2b26;
+  --accent: #d7c59b;
+  --accent-hover: #e4d3ac;
+  --accent-text: #17150f;
+}
+
+/* =========================================================
+   8. PEACEFUL BLUE
+   ========================================================= */
+
+.app.light.theme-blue {
+  --bg: #eef7fb;
+  --card: #ffffff;
+  --card-2: #f7fbfd;
+  --ink: #22313a;
+  --muted: #687a83;
+  --hint: #9aaab1;
+  --border: #d5e6ed;
+  --input: #eff7fa;
+  --soft: #dcecf3;
+  --toolbar: #e8f3f7;
+  --accent: #5c91a8;
+  --accent-hover: #47798e;
+  --accent-text: #ffffff;
+}
+
+.app.dark.theme-blue {
+  --bg: #141c21;
+  --card: #202d33;
+  --card-2: #27363d;
+  --ink: #eff7fa;
+  --muted: #b4c4ca;
+  --hint: #7e929a;
+  --border: #354850;
+  --input: #293940;
+  --soft: #30434b;
+  --toolbar: #2b3c43;
+  --accent: #9acfe2;
+  --accent-hover: #b0dbe8;
+  --accent-text: #172126;
+}
+
+/* =========================================================
+   9. TERRACOTTA
+   ========================================================= */
+
+.app.light.theme-terracotta {
+  --bg: #f8f0ea;
+  --card: #fffdfc;
+  --card-2: #fbf7f4;
+  --ink: #332720;
+  --muted: #77675e;
+  --hint: #aa9990;
+  --border: #e2d2c9;
+  --input: #f7eee8;
+  --soft: #f0ddd4;
+  --toolbar: #f2e6df;
+  --accent: #b96548;
+  --accent-hover: #9f5138;
+  --accent-text: #ffffff;
+}
+
+.app.dark.theme-terracotta {
+  --bg: #201714;
+  --card: #2c211d;
+  --card-2: #352823;
+  --ink: #faf0ea;
+  --muted: #c7b3aa;
+  --hint: #907b72;
+  --border: #493630;
+  --input: #342722;
+  --soft: #49332c;
+  --toolbar: #3a2b26;
+  --accent: #e39a7d;
+  --accent-hover: #efad93;
+  --accent-text: #281915;
+}
+
+/* =========================================================
+   10. CLASSIC PLUM
+   ========================================================= */
+
+.app.light.theme-plum {
+  --bg: #f8f7f3;
+  --card: #ffffff;
+  --card-2: #faf9fc;
+  --ink: #252331;
+  --muted: #6e6878;
+  --hint: #aaa4b0;
+  --border: #e4e0e8;
+  --input: #f6f3f8;
+  --soft: #e9e3f3;
+  --toolbar: #f3f0f6;
+  --accent: #5e4b8b;
+  --accent-hover: #4e3d76;
+  --accent-text: #ffffff;
+}
+
+.app.dark.theme-plum {
+  --bg: #19171e;
+  --card: #24212a;
+  --card-2: #2b2732;
+  --ink: #f4f1f7;
+  --muted: #b6afbd;
+  --hint: #817a88;
+  --border: #383340;
+  --input: #2b2732;
+  --soft: #3a3148;
+  --toolbar: #302b38;
+  --accent: #b9a5e7;
+  --accent-hover: #cbb9ef;
+  --accent-text: #17131e;
+}
+
+/* =========================================================
+   11. APP CONTAINER
+   ========================================================= */
+
+.app {
+  padding-bottom: 88px;
+}
+
+.app .content {
+  width: min(900px, 100%);
+  margin: 0 auto;
+  padding: 24px 18px;
+}
+
+/* =========================================================
+   12. TOP BAR
+   ========================================================= */
+
+.app .topbar {
   height: 72px;
+
   position: sticky;
   top: 0;
   z-index: 20;
-
-  background: var(--bg);
-  color: var(--ink);
-
-  border-bottom: 1px solid var(--border);
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
   padding: 0 max(18px, calc((100vw - 900px) / 2));
+
+  background: var(--bg);
+  color: var(--ink);
+
+  border-bottom: 1px solid var(--border);
+
+  backdrop-filter: blur(14px);
+
+  transition:
+    background-color .25s ease,
+    border-color .25s ease;
 }
 
-.brand {
+.app .brand {
   border: 0;
   background: transparent;
+
   color: var(--ink);
 
   font-size: 25px;
@@ -132,63 +436,58 @@ textarea {
   cursor: pointer;
 }
 
-.top-actions {
+.app .top-actions {
   display: flex;
   gap: 4px;
 }
 
 /* =========================================================
-   ICON BUTTONS
+   13. ICON BUTTONS
    ========================================================= */
 
-.iconbtn {
-  border: 0;
-  background: transparent;
-  color: var(--muted);
-
+.app .iconbtn {
   width: 42px;
   height: 42px;
 
+  border: 0;
   border-radius: 50%;
 
   display: inline-grid;
   place-items: center;
 
-  cursor: pointer;
+  background: transparent;
+  color: var(--muted);
 }
 
-.iconbtn:hover {
+.app .iconbtn:hover {
   background: var(--soft);
   color: var(--accent);
 }
 
-.iconbtn svg,
-.bottom svg,
-.menu svg,
-.primary svg,
-.outline svg,
-.subhead svg,
-.text-danger svg {
+.app .iconbtn svg {
   width: 19px;
   height: 19px;
 }
 
 /* =========================================================
-   MOBILE MENU
+   14. MENU
    ========================================================= */
 
-.mobile-menu {
+.app .mobile-menu {
   display: none;
 }
 
-.menu {
+.app .menu {
   position: fixed;
-  z-index: 30;
 
   right: max(16px, calc((100vw - 900px) / 2));
   top: 64px;
 
+  z-index: 30;
+
   width: 245px;
+
+  padding: 8px;
 
   background: var(--card);
   color: var(--ink);
@@ -196,49 +495,37 @@ textarea {
   border: 1px solid var(--border);
   border-radius: 18px;
 
-  padding: 8px;
-
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-lg);
 }
 
-.menu button {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-
+.app .menu button {
   width: 100%;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
 
   padding: 12px;
 
   border: 0;
+  border-radius: 12px;
+
   background: transparent;
   color: var(--ink);
 
-  border-radius: 12px;
   text-align: left;
-
-  cursor: pointer;
 }
 
-.menu button:hover {
+.app .menu button:hover {
   background: var(--soft);
+  color: var(--accent);
 }
 
 /* =========================================================
-   CONTENT
+   15. CARDS
    ========================================================= */
 
-.content {
-  width: min(900px, 100%);
-  margin: 0 auto;
-  padding: 24px 18px;
-}
-
-/* =========================================================
-   CARDS
-   ========================================================= */
-
-.card {
+.app .card {
   background: var(--card);
   color: var(--ink);
 
@@ -247,78 +534,106 @@ textarea {
 
   padding: 20px;
   margin-bottom: 16px;
+
+  box-shadow: var(--shadow-sm);
+
+  transition:
+    background-color .25s ease,
+    border-color .25s ease,
+    box-shadow .25s ease;
 }
 
-.card p {
+.app .card:hover {
+  box-shadow: var(--shadow);
+}
+
+.app .card p {
   color: var(--muted);
   line-height: 1.55;
 }
 
 /* =========================================================
-   HEADINGS
+   16. HEADINGS
    ========================================================= */
 
-h1 {
-  font-size: 25px;
+.app h1,
+.app h2,
+.app h3,
+.app h4,
+.app h5,
+.app h6 {
+  color: var(--ink);
+}
+
+.app h1 {
   margin: 0;
-  color: var(--ink);
+  font-size: 25px;
 }
 
-h2,
-h3,
-h4 {
-  color: var(--ink);
+.app h2 {
+  margin-top: 0;
 }
 
-.today-card {
+.app p {
+  color: var(--muted);
+}
+
+/* =========================================================
+   17. TODAY CARD
+   ========================================================= */
+
+.app .today-card {
   text-align: center;
 
   display: flex;
   flex-direction: column;
   align-items: center;
+
   gap: 10px;
 
   padding: 30px 22px;
 }
 
-.today-card h2 {
+.app .today-card h2 {
   margin: 4px 0;
   font-size: 23px;
 }
 
-.today-card p {
-  color: var(--muted);
-}
-
-.hero-icon {
+.app .hero-icon {
   width: 42px;
   height: 42px;
   color: var(--accent);
 }
 
-.eyebrow,
-.section-title {
+/* =========================================================
+   18. LABELS
+   ========================================================= */
+
+.app .eyebrow,
+.app .section-title {
   font-size: 12px;
   font-weight: 800;
-  letter-spacing: 0.14em;
+  letter-spacing: .14em;
+
   color: var(--accent);
 }
 
-.section-title {
+.app .section-title {
   margin: 26px 2px 10px;
 }
 
 /* =========================================================
-   PROGRESS / STATS
+   19. STATS
    ========================================================= */
 
-.stats {
+.app .stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+
   padding: 0;
 }
 
-.stat {
+.app .stat {
   min-height: 120px;
 
   display: flex;
@@ -329,55 +644,64 @@ h4 {
   gap: 6px;
 }
 
-.stat + .stat {
+.app .stat + .stat {
   border-left: 1px solid var(--border);
 }
 
-.stat svg {
+.app .stat svg {
   color: var(--accent);
   width: 21px;
 }
 
-.stat b {
+.app .stat b {
   font-size: 25px;
   color: var(--ink);
 }
 
-.stat span {
+.app .stat span {
   font-size: 12px;
   color: var(--muted);
 }
 
-.progress {
+/* =========================================================
+   20. PROGRESS
+   ========================================================= */
+
+.app .progress {
   height: 8px;
 
-  background: var(--soft);
-  border-radius: 99px;
-
-  overflow: hidden;
   margin: 10px 0;
+
+  background: var(--soft);
+
+  border-radius: 99px;
+  overflow: hidden;
 }
 
-.progress span {
+.app .progress span {
   display: block;
+
   height: 100%;
 
   background: var(--accent);
+
   border-radius: 99px;
+
+  transition: width .3s ease;
 }
 
 /* =========================================================
-   NEW TESTAMENT CARD
+   21. NEW TESTAMENT CARD
    ========================================================= */
 
-.nt-card {
+.app .nt-card {
   width: 100%;
 
   display: flex;
   align-items: center;
   gap: 14px;
 
-  text-align: left;
+  padding: 18px;
 
   background: var(--card);
   color: var(--ink);
@@ -385,115 +709,96 @@ h4 {
   border: 1px solid var(--border);
   border-radius: 22px;
 
-  padding: 18px;
-
-  cursor: pointer;
+  text-align: left;
 }
 
-.nt-card > svg {
+.app .nt-card:hover {
+  border-color: var(--accent);
+  background: var(--card-2);
+}
+
+.app .nt-card > svg {
   color: var(--accent);
 }
 
-.nt-card strong {
+.app .nt-card strong {
   color: var(--accent);
-}
-
-.grow {
-  flex: 1;
-}
-
-.nt-card small,
-.reading small,
-.setting small,
-.recent small,
-.date-card small,
-.nt-title small,
-.card > small {
-  display: block;
-  color: var(--muted);
-  margin-top: 5px;
 }
 
 /* =========================================================
-   RECENT STUDIES
+   22. RECENT STUDIES
    ========================================================= */
 
-.section-row {
+.app .section-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.section-row .section-title {
-  margin-bottom: 10px;
-}
-
-.recent {
+.app .recent {
   display: flex;
   align-items: center;
   gap: 14px;
+
+  padding: 16px;
+  margin-bottom: 10px;
 
   background: var(--card);
   color: var(--ink);
 
   border: 1px solid var(--border);
   border-radius: 18px;
-
-  padding: 16px;
-  margin-bottom: 10px;
-
-  cursor: pointer;
 }
 
-.recent > svg {
+.app .recent:hover {
+  background: var(--card-2);
+  border-color: var(--accent);
+}
+
+.app .recent > svg {
   color: var(--accent);
 }
 
-.recent p {
+.app .recent p {
   margin: 5px 0 0;
-  color: var(--muted);
   font-size: 13px;
-}
-
-.danger {
-  color: var(--danger);
+  color: var(--muted);
 }
 
 /* =========================================================
-   EMPTY STATE
+   23. EMPTY STATE
    ========================================================= */
 
-.empty {
+.app .empty {
   text-align: center;
   padding: 36px 18px;
 }
 
-.empty > svg {
+.app .empty > svg {
   width: 40px;
   height: 40px;
 
-  color: var(--hint);
   margin-bottom: 10px;
+
+  color: var(--hint);
 }
 
-.empty b {
+.app .empty b {
   display: block;
-}
-
-.empty p {
-  margin: 7px 0 0;
+  color: var(--ink);
 }
 
 /* =========================================================
-   BUTTONS
+   24. BUTTON SYSTEM
    ========================================================= */
 
-.primary,
-.outline,
-.text-danger {
+.app .primary,
+.app .outline,
+.app .text-danger {
   min-height: 46px;
 
   border-radius: 14px;
+
   padding: 0 17px;
 
   display: inline-flex;
@@ -503,91 +808,113 @@ h4 {
   gap: 9px;
 
   font-weight: 700;
-  cursor: pointer;
+
+  transition:
+    background-color .2s ease,
+    color .2s ease,
+    border-color .2s ease,
+    transform .15s ease;
 }
 
-.primary {
+.app .primary {
   background: var(--accent);
-  color: #FFFFFF;
+  color: var(--accent-text);
 
   border: 1px solid var(--accent);
 }
 
-.app.dark .primary {
-  color: #17131E;
+.app .primary:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  transform: translateY(-1px);
 }
 
-.outline {
+.app .outline {
   background: transparent;
   color: var(--accent);
+
   border: 1px solid var(--accent);
 }
 
-.text-danger {
+.app .outline:hover {
+  background: var(--soft);
+}
+
+.app .text-danger {
   background: transparent;
   color: var(--danger);
   border: 0;
 }
 
-.big {
+.app .text-danger:hover {
+  background: rgba(180, 71, 82, .08);
+}
+
+.app .big {
   min-height: 52px;
   padding: 0 23px;
   border-radius: 16px;
 }
 
-.full {
+.app .full {
   width: 100%;
   margin-top: 10px;
 }
 
 /* =========================================================
-   BOTTOM NAVIGATION
+   25. BOTTOM NAVIGATION
    ========================================================= */
 
-.bottom {
+.app .bottom {
   position: fixed;
 
-  bottom: 0;
   left: 0;
   right: 0;
+  bottom: 0;
 
   height: 76px;
 
   z-index: 25;
+
+  display: flex;
+  justify-content: center;
 
   background: var(--card);
   color: var(--ink);
 
   border-top: 1px solid var(--border);
 
-  display: flex;
-  justify-content: center;
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, .04);
 }
 
-.bottom button {
+.app .bottom button {
   width: min(150px, 20%);
 
   border: 0;
+
   background: transparent;
   color: var(--muted);
 
   display: flex;
   flex-direction: column;
-  gap: 4px;
-
   align-items: center;
   justify-content: center;
 
-  font: 500 11px Inter;
+  gap: 4px;
 
-  cursor: pointer;
+  font-size: 11px;
+  font-weight: 600;
 }
 
-.bottom button.active {
+.app .bottom button:hover {
   color: var(--accent);
 }
 
-.bottom button.active svg {
+.app .bottom button.active {
+  color: var(--accent);
+}
+
+.app .bottom button.active svg {
   background: var(--soft);
 
   border-radius: 20px;
@@ -599,10 +926,10 @@ h4 {
 }
 
 /* =========================================================
-   PAGE HEAD
+   26. PAGE HEADER
    ========================================================= */
 
-.pagehead {
+.app .pagehead {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -610,20 +937,24 @@ h4 {
   margin-bottom: 18px;
 }
 
-.pagehead h1 {
+.app .pagehead h1 {
   flex: 1;
 }
 
 /* =========================================================
-   DATE CARD
+   27. DATE CARD
    ========================================================= */
 
-.date-card {
+.app .date-card {
   width: 100%;
 
   display: flex;
   align-items: center;
   gap: 13px;
+
+  padding: 16px;
+
+  margin-bottom: 16px;
 
   background: var(--card);
   color: var(--ink);
@@ -631,32 +962,32 @@ h4 {
   border: 1px solid var(--border);
   border-radius: 18px;
 
-  padding: 16px;
-
   text-align: left;
-
-  cursor: pointer;
-  margin-bottom: 16px;
 }
 
-.date-card > svg:first-child {
+.app .date-card:hover {
+  background: var(--card-2);
+  border-color: var(--accent);
+}
+
+.app .date-card > svg:first-child {
   color: var(--accent);
 }
 
-.date-card svg:last-child {
+.app .date-card svg:last-child {
   margin-left: auto;
 }
 
 /* =========================================================
-   CHAPTERS
+   28. CHAPTER
    ========================================================= */
 
-.chapter {
+.app .chapter {
   padding: 0;
   overflow: hidden;
 }
 
-.chapter-head {
+.app .chapter-head {
   min-height: 72px;
 
   padding: 15px 17px;
@@ -665,40 +996,46 @@ h4 {
   align-items: center;
   justify-content: space-between;
 
-  cursor: pointer;
+  background: var(--card);
+  color: var(--ink);
 }
 
-.chapter-head small {
+.app .chapter-head small {
   display: block;
   color: var(--muted);
   margin-top: 5px;
 }
 
-.chapter-tools {
+.app .chapter-tools {
   display: flex;
   align-items: center;
 }
 
-.chapter-body {
+.app .chapter-body {
   padding: 0 18px 20px;
 }
 
 /* =========================================================
-   FORM FIELDS
+   29. FORM FIELDS
    ========================================================= */
 
-.field {
+.app .field {
   display: block;
 
-  font-weight: 700;
-  font-size: 14px;
-
   margin: 17px 0;
+
+  color: var(--ink);
+
+  font-size: 14px;
+  font-weight: 700;
 }
 
-.inputwrap {
+.app .inputwrap {
   display: flex;
   align-items: center;
+
+  margin-top: 7px;
+  padding: 0 13px;
 
   background: var(--input);
   color: var(--ink);
@@ -706,18 +1043,27 @@ h4 {
   border: 1px solid var(--border);
   border-radius: 16px;
 
-  margin-top: 7px;
-  padding: 0 13px;
+  transition:
+    border-color .2s ease,
+    box-shadow .2s ease;
 }
 
-.inputwrap svg {
-  color: var(--accent);
+.app .inputwrap:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(94, 75, 139, .10);
+}
+
+.app .inputwrap svg {
   flex: none;
+  color: var(--accent);
 }
 
-.inputwrap input,
-.inputwrap textarea {
+.app .inputwrap input,
+.app .inputwrap textarea {
   width: 100%;
+  min-width: 0;
+
+  padding: 13px 10px;
 
   border: 0;
   outline: 0;
@@ -725,46 +1071,50 @@ h4 {
   background: transparent;
   color: var(--ink);
 
-  font: 400 14px Inter;
-
-  padding: 13px 10px;
-  min-width: 0;
+  font-size: 14px;
 }
 
-.inputwrap input::placeholder,
-.inputwrap textarea::placeholder {
+.app .inputwrap input::placeholder,
+.app .inputwrap textarea::placeholder {
   color: var(--hint);
 }
 
-.inputwrap textarea {
+.app .inputwrap textarea {
   min-height: 92px;
   resize: vertical;
 }
 
 /* =========================================================
-   SUBHEADINGS
+   30. SUBHEAD
    ========================================================= */
 
-.subhead {
+.app .subhead {
   display: flex;
-  gap: 9px;
   align-items: center;
+  gap: 9px;
+
+  margin: 24px 0 4px;
 
   color: var(--accent);
 
-  font-weight: 800;
   font-size: 15px;
+  font-weight: 800;
+}
 
-  margin: 24px 0 4px;
+.app .subhead svg {
+  color: var(--accent);
 }
 
 /* =========================================================
-   RICH TEXT
+   31. RICH TEXT
    ========================================================= */
 
-.rich-preview {
+.app .rich-preview {
   width: 100%;
   min-height: 90px;
+
+  margin-top: 7px;
+  padding: 13px;
 
   background: var(--input);
   color: var(--ink);
@@ -772,80 +1122,76 @@ h4 {
   border: 1px solid var(--border);
   border-radius: 16px;
 
-  margin-top: 7px;
-  padding: 13px;
-
   text-align: left;
 
-  font: 14px Inter;
-
-  cursor: text;
+  font-size: 14px;
 }
 
-.rich-preview em {
+.app .rich-preview p {
+  color: var(--ink);
+}
+
+.app .rich-preview em {
   color: var(--hint);
   font-style: normal;
 }
 
-.rich-preview small {
+.app .rich-preview small {
   display: block;
   color: var(--hint);
   margin-top: 9px;
   font-size: 11px;
 }
 
-.rich-preview p {
-  margin: 0;
-  color: var(--ink);
-}
+/* =========================================================
+   32. DIVIDERS
+   ========================================================= */
 
-hr {
+.app hr {
   border: 0;
   border-top: 1px solid var(--border);
   margin: 24px 0;
 }
 
 /* =========================================================
-   DETAILS
+   33. DETAILS
    ========================================================= */
 
-details summary {
+.app details summary {
   display: flex;
   align-items: center;
   gap: 9px;
 
+  padding: 5px 0;
+
   list-style: none;
-  cursor: pointer;
 
   color: var(--ink);
   font-weight: 800;
-
-  padding: 5px 0;
+  cursor: pointer;
 }
 
-details summary::-webkit-details-marker {
+.app details summary::-webkit-details-marker {
   display: none;
 }
 
-details summary svg {
+.app details summary svg {
   color: var(--accent);
 }
 
-details summary small {
+.app details summary small {
   margin-left: auto;
   color: var(--muted);
   font-weight: 400;
 }
 
 /* =========================================================
-   EDITOR
+   34. EDITOR
    ========================================================= */
 
-.editor-overlay {
+.app .editor-overlay {
   position: fixed;
   inset: 0;
-
-  background: rgba(0, 0, 0, 0.55);
 
   z-index: 50;
 
@@ -853,23 +1199,28 @@ details summary small {
   place-items: center;
 
   padding: 16px;
+
+  background: rgba(0, 0, 0, .55);
 }
 
-.editor-modal {
+.app .editor-modal {
   width: min(760px, 100%);
   max-height: 90vh;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 15px;
 
   background: var(--card);
   color: var(--ink);
 
   border-radius: 22px;
-  padding: 15px;
 
-  display: flex;
-  flex-direction: column;
+  box-shadow: var(--shadow-lg);
 }
 
-.editor-title {
+.app .editor-title {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -877,72 +1228,474 @@ details summary small {
   padding-left: 8px;
 }
 
-.toolbar {
+.app .toolbar {
   display: flex;
   flex-wrap: wrap;
   gap: 3px;
+
+  margin: 8px 0;
+  padding: 6px;
 
   background: var(--toolbar);
 
   border: 1px solid var(--border);
   border-radius: 14px;
-
-  padding: 6px;
-  margin: 8px 0;
 }
 
-.toolbar button {
-  border: 0;
-  background: transparent;
-
-  color: var(--accent);
-
+.app .toolbar button {
   width: 34px;
   height: 34px;
 
-  border-radius: 8px;
-
-  cursor: pointer;
-
   display: grid;
   place-items: center;
+
+  border: 0;
+  border-radius: 8px;
+
+  background: transparent;
+  color: var(--ink);
 }
 
-.toolbar button:hover {
+.app .toolbar button:hover,
+.app .toolbar button.active {
   background: var(--soft);
+  color: var(--accent);
 }
 
-.toolbar svg {
-  width: 17px;
-}
-
-.editor-area {
+.app .editor-area {
   min-height: 300px;
 
   overflow: auto;
 
-  border: 1px solid var(--border);
-  border-radius: 15px;
-
   padding: 15px;
+  margin-bottom: 10px;
 
   outline: none;
 
   background: var(--input);
   color: var(--ink);
 
-  line-height: 1.6;
+  border: 1px solid var(--border);
+  border-radius: 15px;
 
-  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.app .editor-area:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(94, 75, 139, .10);
 }
 
 /* =========================================================
-   BACKUP / EXPORT
+   35. SEARCH
    ========================================================= */
 
-.backupbox {
+.app .searchbox {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  padding: 5px 12px;
+  margin-bottom: 16px;
+
+  background: var(--card);
+  color: var(--ink);
+
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.app .searchbox:focus-within {
+  border-color: var(--accent);
+}
+
+.app .searchbox svg {
+  color: var(--accent);
+}
+
+.app .searchbox input {
+  flex: 1;
+
+  padding: 12px;
+
+  border: 0;
+  outline: 0;
+
+  background: transparent;
+  color: var(--ink);
+}
+
+.app .searchbox input::placeholder {
+  color: var(--hint);
+}
+
+.app .searchbox button {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+}
+
+/* =========================================================
+   36. CALENDAR
+   ========================================================= */
+
+.app .cal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.app .week,
+.app .calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+
+  text-align: center;
+}
+
+.app .week {
+  margin: 18px 0 8px;
+
+  color: var(--muted);
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.app .calendar-grid button,
+.app .calendar-grid span {
+  aspect-ratio: 1;
+
+  display: grid;
+  place-items: center;
+
+  border: 0;
+  border-radius: 12px;
+
+  background: transparent;
+  color: var(--ink);
+}
+
+.app .calendar-grid button:hover {
+  background: var(--soft);
+  color: var(--accent);
+}
+
+.app .calendar-grid .studied {
+  background: var(--soft);
+  color: var(--accent);
+  font-weight: 800;
+}
+
+/* =========================================================
+   37. NEW TESTAMENT
+   ========================================================= */
+
+.app .nt-book {
+  padding: 0;
+  overflow: hidden;
+}
+
+.app .nt-title {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 15px;
+
+  border: 0;
+
+  background: transparent;
+  color: var(--ink);
+
+  text-align: left;
+}
+
+.app .nt-title small {
+  margin: 0;
+}
+
+.app .nt-title > svg {
+  margin-left: auto;
+}
+
+.app .circle {
+  width: 34px;
+  height: 34px;
+
+  display: grid;
+  place-items: center;
+
+  flex: none;
+
+  border-radius: 50%;
+
+  background: var(--soft);
+  color: var(--accent);
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.app .chapter-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+
+  gap: 8px;
+
+  padding: 0 15px 15px;
+}
+
+.app .chapter-grid button {
+  aspect-ratio: 1;
+
+  border: 1px solid var(--border);
+  border-radius: 12px;
+
+  background: var(--input);
+  color: var(--ink);
+}
+
+.app .chapter-grid button:hover {
+  border-color: var(--accent);
+  background: var(--soft);
+}
+
+.app .chapter-grid button.chosen {
+  background: var(--accent);
+  color: var(--accent-text);
+  border-color: var(--accent);
+}
+
+/* =========================================================
+   38. SETTINGS
+   ========================================================= */
+
+.app .setting {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.app .setting-icon {
+  width: 45px;
+  height: 45px;
+
+  flex: none;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 14px;
+
+  background: var(--soft);
+  color: var(--accent);
+}
+
+/* =========================================================
+   39. LIGHT / DARK TOGGLE
+   ========================================================= */
+
+.app .mode-toggle {
+  min-height: 44px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 0 13px;
+
+  background: var(--soft);
+  color: var(--ink);
+
+  border: 1px solid var(--border);
+  border-radius: 13px;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.app .mode-toggle:hover {
+  background: var(--accent);
+  color: var(--accent-text);
+  border-color: var(--accent);
+}
+
+.app .mode-toggle svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* =========================================================
+   40. THEME OPTIONS
+   ========================================================= */
+
+.app .theme-option {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 12px;
+
+  background: var(--card);
+  color: var(--ink);
+
+  border: 1px solid var(--border);
+  border-radius: 18px;
+
+  text-align: left;
+}
+
+.app .theme-option:hover {
+  background: var(--card-2);
+  border-color: var(--accent);
+}
+
+.app .theme-option.selected {
+  border: 2px solid var(--accent);
+  padding: 11px;
+
+  background: var(--soft);
+}
+
+.app .theme-swatch {
+  width: 48px;
+  height: 48px;
+
+  flex: none;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 14px;
+
+  border: 1px solid var(--border);
+}
+
+.app .theme-swatch span {
+  font-size: 22px;
+}
+
+.app .theme-swatch-warm {
+  background: linear-gradient(135deg, #f6f0e7 50%, #8a5a3b 50%);
+}
+
+.app .theme-swatch-sage {
+  background: linear-gradient(135deg, #f2f6f1 50%, #5d8062 50%);
+}
+
+.app .theme-swatch-navy {
+  background: linear-gradient(135deg, #f2f4f8 50%, #29466f 50%);
+}
+
+.app .theme-swatch-midnight {
+  background: linear-gradient(135deg, #f4f1ea 50%, #292722 50%);
+}
+
+.app .theme-swatch-blue {
+  background: linear-gradient(135deg, #eef7fb 50%, #5c91a8 50%);
+}
+
+.app .theme-swatch-terracotta {
+  background: linear-gradient(135deg, #f8f0ea 50%, #b96548 50%);
+}
+
+.app .theme-swatch-plum {
+  background: linear-gradient(135deg, #f8f7f3 50%, #5e4b8b 50%);
+}
+
+.app .theme-copy {
+  flex: 1;
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.app .theme-copy b {
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.app .theme-copy small {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.app .theme-check {
+  display: grid;
+  place-items: center;
+
+  color: var(--accent);
+}
+
+/* =========================================================
+   41. LIST ROWS
+   ========================================================= */
+
+.app .list-row {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 11px 0;
+
+  border: 0;
+
+  background: transparent;
+  color: var(--ink);
+
+  text-align: left;
+}
+
+.app .list-row:hover {
+  color: var(--accent);
+}
+
+.app .list-row svg {
+  flex: none;
+  color: var(--accent);
+}
+
+/* =========================================================
+   42. SMALL TEXT
+   ========================================================= */
+
+.app .reading small,
+.app .setting small,
+.app .recent small,
+.app .date-card small,
+.app .nt-title small,
+.app .card > small {
+  display: block;
+
+  margin-top: 5px;
+
+  color: var(--muted);
+}
+
+.app .danger,
+.app .text-danger {
+  color: var(--danger);
+}
+
+/* =========================================================
+   43. BACKUP / EXPORT
+   ========================================================= */
+
+.app .backupbox {
   width: 100%;
   min-height: 190px;
+
+  padding: 14px;
 
   resize: vertical;
 
@@ -952,738 +1705,239 @@ details summary small {
   border: 1px solid var(--border);
   border-radius: 16px;
 
-  padding: 14px;
-
-  font: 13px ui-monospace, monospace;
-
   outline: none;
 
-  margin: 10px 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
 }
 
-.backupbox::placeholder {
+.app .backupbox:focus {
+  border-color: var(--accent);
+}
+
+.app .backupbox::placeholder {
   color: var(--hint);
 }
 
-.export {
-  min-height: 500px;
-}
-
 /* =========================================================
-   SEARCH
+   44. MODALS
    ========================================================= */
 
-.searchbox {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-
+.app .modal,
+.app .dialog,
+.app .modal-content {
   background: var(--card);
   color: var(--ink);
 
-  border: 1px solid var(--border);
-  border-radius: 16px;
+  border-color: var(--border);
 
-  padding: 5px 12px;
-  margin-bottom: 16px;
+  box-shadow: var(--shadow-lg);
 }
 
-.searchbox svg {
-  color: var(--accent);
-}
+/* =========================================================
+   45. GENERIC INPUTS
+   ========================================================= */
 
-.searchbox input {
-  flex: 1;
-
-  border: 0;
-  outline: 0;
-
-  background: transparent;
+.app input,
+.app textarea,
+.app select {
   color: var(--ink);
 
-  font: 14px Inter;
+  background: var(--input);
 
-  padding: 12px;
+  border-color: var(--border);
 }
 
-.searchbox input::placeholder {
+.app input::placeholder,
+.app textarea::placeholder {
   color: var(--hint);
 }
 
-.searchbox button {
-  border: 0;
-  background: transparent;
-  color: var(--muted);
-
-  font-size: 22px;
-}
-
-/* =========================================================
-   CALENDAR
-   ========================================================= */
-
-.cal-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.week,
-.calendar-grid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-
-  gap: 6px;
-
-  text-align: center;
-}
-
-.week {
-  margin: 18px 0 8px;
-  color: var(--muted);
-  font-size: 12px;
-}
-
-.calendar-grid button,
-.calendar-grid span {
-  aspect-ratio: 1;
-
-  border: 0;
-  border-radius: 12px;
-
-  background: transparent;
-  color: var(--ink);
-
-  cursor: pointer;
-}
-
-.calendar-grid button:hover {
-  background: var(--soft);
-}
-
-.calendar-grid .studied {
-  background: var(--soft);
-  color: var(--accent);
-  font-weight: 800;
-}
-
-/* =========================================================
-   LIST ROW
-   ========================================================= */
-
-.list-row {
-  width: 100%;
-
-  display: flex;
-  align-items: center;
-  gap: 12px;
-
-  border: 0;
-  background: transparent;
-  color: var(--ink);
-
-  padding: 11px 0;
-
-  text-align: left;
-
-  cursor: pointer;
-}
-
-.list-row svg {
-  color: var(--accent);
-  flex: none;
-}
-
-/* =========================================================
-   READING
-   ========================================================= */
-
-.reading {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.reading > svg {
-  color: var(--accent);
-}
-
-.reading strong {
-  color: var(--accent);
-}
-
-/* =========================================================
-   NEW TESTAMENT
-   ========================================================= */
-
-.nt-book {
-  padding: 0;
-  overflow: hidden;
-}
-
-.nt-title {
-  width: 100%;
-
-  border: 0;
-  background: transparent;
-  color: var(--ink);
-
-  display: flex;
-  align-items: center;
-  gap: 12px;
-
-  padding: 15px;
-
-  text-align: left;
-
-  cursor: pointer;
-}
-
-.nt-title small {
-  margin: 0;
-}
-
-.nt-title > svg {
-  margin-left: auto;
-}
-
-.circle {
-  width: 34px;
-  height: 34px;
-
-  border-radius: 50%;
-
-  background: var(--soft);
-  color: var(--accent);
-
-  display: grid;
-  place-items: center;
-
-  font-size: 12px;
-  font-weight: 800;
-}
-
-.chapter-grid {
-  display: grid;
-
-  grid-template-columns: repeat(5, 1fr);
-
-  gap: 8px;
-
-  padding: 0 15px 15px;
-}
-
-.chapter-grid button {
-  aspect-ratio: 1;
-
-  border: 1px solid var(--border);
-  border-radius: 12px;
-
-  background: var(--input);
-  color: var(--ink);
-
-  cursor: pointer;
-}
-
-.chapter-grid button:hover {
-  border-color: var(--accent);
-}
-
-.chapter-grid button.chosen {
-  background: var(--accent);
-  color: #FFFFFF;
+.app input:focus,
+.app textarea:focus,
+.app select:focus {
+  outline: none;
   border-color: var(--accent);
 }
 
 /* =========================================================
-   SETTINGS
+   46. CHECKBOXES / RADIOS
    ========================================================= */
 
-.setting {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.setting-icon {
-  width: 45px;
-  height: 45px;
-
-  border-radius: 14px;
-
-  background: var(--soft);
-  color: var(--accent);
-
-  display: grid;
-  place-items: center;
-}
-
-.setting input {
-  width: 48px;
-  height: 25px;
+.app input[type="checkbox"],
+.app input[type="radio"] {
   accent-color: var(--accent);
 }
 
-/* Mode button */
-
-.mode-toggle {
-  min-height: 42px;
-
-  border: 1px solid var(--border);
-
-  background: var(--soft);
-  color: var(--ink);
-
-  border-radius: 13px;
-
-  padding: 0 12px;
-
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-
-  font: 700 13px Inter;
-
-  cursor: pointer;
-}
-
-.mode-toggle svg {
-  width: 17px;
-  height: 17px;
-  color: var(--accent);
-}
-
 /* =========================================================
-   THEMES — LIGHT MODE
+   47. TOAST
    ========================================================= */
 
-.app.light.theme-warm {
-  --bg: #F6F0E7;
-  --card: #FFFDF8;
-  --ink: #2E261F;
-  --muted: #756A60;
-  --hint: #A89B8E;
-  --border: #DED2C5;
-  --input: #F5EEE5;
-  --accent: #8A5A3B;
-  --soft: #EADCCB;
-  --toolbar: #F0E7DC;
-}
-
-.app.light.theme-sage {
-  --bg: #F2F6F1;
-  --card: #FFFFFF;
-  --ink: #243026;
-  --muted: #667166;
-  --hint: #9AA59A;
-  --border: #D8E0D7;
-  --input: #F1F5F0;
-  --accent: #5D8062;
-  --soft: #DDE9DE;
-  --toolbar: #EAF1EA;
-}
-
-.app.light.theme-navy {
-  --bg: #F2F4F8;
-  --card: #FFFFFF;
-  --ink: #202A3A;
-  --muted: #687386;
-  --hint: #9AA4B3;
-  --border: #D8DEE8;
-  --input: #F1F3F7;
-  --accent: #29466F;
-  --soft: #E5EAF2;
-  --toolbar: #EBEEF4;
-}
-
-.app.light.theme-midnight {
-  --bg: #F4F1EA;
-  --card: #FFFEFA;
-  --ink: #25231F;
-  --muted: #716D64;
-  --hint: #A29C91;
-  --border: #DDD8CC;
-  --input: #F3F0E9;
-  --accent: #B58A45;
-  --soft: #E9E4D9;
-  --toolbar: #EFEBE2;
-}
-
-.app.light.theme-blue {
-  --bg: #EEF7FB;
-  --card: #FFFFFF;
-  --ink: #22313A;
-  --muted: #687A83;
-  --hint: #9AAAB1;
-  --border: #D5E6ED;
-  --input: #EFF7FA;
-  --accent: #5C91A8;
-  --soft: #DCECF3;
-  --toolbar: #E8F3F7;
-}
-
-.app.light.theme-terracotta {
-  --bg: #F8F0EA;
-  --card: #FFFDFC;
-  --ink: #332720;
-  --muted: #77675E;
-  --hint: #AA9990;
-  --border: #E2D2C9;
-  --input: #F7EEE8;
-  --accent: #B96548;
-  --soft: #F0DDD4;
-  --toolbar: #F2E6DF;
-}
-
-.app.light.theme-plum {
-  --bg: #F8F7F3;
-  --card: #FFFFFF;
-  --ink: #252331;
-  --muted: #6E6878;
-  --hint: #AAA4B0;
-  --border: #E9E5EF;
-  --input: #F6F3F8;
-  --accent: #5E4B8B;
-  --soft: #E9E3F3;
-  --toolbar: #F3F0F6;
-}
-
-/* =========================================================
-   THEMES — DARK MODE
-   ========================================================= */
-
-.app.dark.theme-warm {
-  --bg: #1D1814;
-  --card: #29221D;
-  --ink: #F6EFE6;
-  --muted: #C2B4A7;
-  --hint: #8F8175;
-  --border: #463A31;
-  --input: #302821;
-  --accent: #D6A06F;
-  --soft: #45362B;
-  --toolbar: #382E27;
-}
-
-.app.dark.theme-sage {
-  --bg: #171C18;
-  --card: #232A24;
-  --ink: #EEF5EE;
-  --muted: #B4C0B5;
-  --hint: #7F8D81;
-  --border: #39443A;
-  --input: #2A322B;
-  --accent: #9BC3A0;
-  --soft: #344438;
-  --toolbar: #303B32;
-}
-
-.app.dark.theme-navy {
-  --bg: #151A23;
-  --card: #202938;
-  --ink: #F1F4F9;
-  --muted: #B2BBC9;
-  --hint: #7E899A;
-  --border: #354154;
-  --input: #283243;
-  --accent: #8FAAD4;
-  --soft: #303C50;
-  --toolbar: #2A3547;
-}
-
-.app.dark.theme-midnight {
-  --bg: #111110;
-  --card: #1D1C19;
-  --ink: #F5F0E5;
-  --muted: #BDB7AA;
-  --hint: #827C71;
-  --border: #38352F;
-  --input: #27251F;
-  --accent: #D7C59B;
-  --soft: #373329;
-  --toolbar: #2D2B26;
-}
-
-.app.dark.theme-blue {
-  --bg: #141C21;
-  --card: #202D33;
-  --ink: #EFF7FA;
-  --muted: #B4C4CA;
-  --hint: #7E929A;
-  --border: #354850;
-  --input: #293940;
-  --accent: #9ACFE2;
-  --soft: #30434B;
-  --toolbar: #2B3C43;
-}
-
-.app.dark.theme-terracotta {
-  --bg: #201714;
-  --card: #2C211D;
-  --ink: #FAF0EA;
-  --muted: #C7B3AA;
-  --hint: #907B72;
-  --border: #493630;
-  --input: #342722;
-  --accent: #E39A7D;
-  --soft: #49332C;
-  --toolbar: #3A2B26;
-}
-
-.app.dark.theme-plum {
-  --bg: #19171E;
-  --card: #24212A;
-  --ink: #F4F1F7;
-  --muted: #B6AFBD;
-  --hint: #817A88;
-  --border: #383340;
-  --input: #2B2732;
-  --accent: #B9A5E7;
-  --soft: #3A3148;
-  --toolbar: #302B38;
-}
-
-/* =========================================================
-   THEME SELECTOR
-   ========================================================= */
-
-.theme-heading {
-  margin: 26px 2px 12px;
-}
-
-.theme-heading h2 {
-  font-size: 18px;
-  margin: 0 0 5px;
-}
-
-.theme-heading p {
-  font-size: 13px;
-  color: var(--muted);
-  margin: 0;
-  line-height: 1.5;
-}
-
-.theme-grid {
-  display: grid;
-  gap: 10px;
-}
-
-.theme-option {
-  width: 100%;
-
-  display: flex;
-  align-items: center;
-  gap: 12px;
-
-  text-align: left;
-
-  background: var(--card);
-  color: var(--ink);
-
-  border: 1px solid var(--border);
-  border-radius: 18px;
-
-  padding: 12px;
-
-  cursor: pointer;
-}
-
-.theme-option:hover {
-  border-color: var(--accent);
-}
-
-.theme-option.selected {
-  border: 2px solid var(--accent);
-  padding: 11px;
-}
-
-.theme-swatch {
-  width: 48px;
-  height: 48px;
-
-  border-radius: 14px;
-
-  display: grid;
-  place-items: center;
-
-  flex: none;
-
-  border: 1px solid var(--border);
-}
-
-.theme-swatch span {
-  font-size: 22px;
-}
-
-.theme-swatch-warm {
-  background: linear-gradient(135deg, #F6F0E7 50%, #8A5A3B 50%);
-}
-
-.theme-swatch-sage {
-  background: linear-gradient(135deg, #F2F6F1 50%, #5D8062 50%);
-}
-
-.theme-swatch-navy {
-  background: linear-gradient(135deg, #F2F4F8 50%, #29466F 50%);
-}
-
-.theme-swatch-midnight {
-  background: linear-gradient(135deg, #F4F1EA 50%, #2B2925 50%);
-}
-
-.theme-swatch-blue {
-  background: linear-gradient(135deg, #EEF7FB 50%, #5C91A8 50%);
-}
-
-.theme-swatch-terracotta {
-  background: linear-gradient(135deg, #F8F0EA 50%, #B96548 50%);
-}
-
-.theme-swatch-plum {
-  background: linear-gradient(135deg, #F8F7F3 50%, #5E4B8B 50%);
-}
-
-.theme-copy {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-
-  min-width: 0;
-  flex: 1;
-}
-
-.theme-copy b {
-  font-size: 14px;
-}
-
-.theme-copy small {
-  color: var(--muted);
-  font-size: 11px;
-}
-
-.theme-check {
-  color: var(--accent);
-
-  display: grid;
-  place-items: center;
-}
-
-.theme-check svg {
-  width: 21px;
-  height: 21px;
-}
-
-/* =========================================================
-   TOAST
-   ========================================================= */
-
-.toast {
+.app .toast {
   position: fixed;
 
-  bottom: 92px;
   left: 50%;
-
-  transform: translateX(-50%);
-
-  background: #29242F;
-  color: #FFFFFF;
-
-  padding: 12px 17px;
-
-  border-radius: 12px;
+  bottom: 92px;
 
   z-index: 70;
 
+  transform: translateX(-50%);
+
+  max-width: calc(100% - 32px);
+
+  padding: 12px 17px;
+
+  background: var(--ink);
+  color: var(--bg);
+
+  border-radius: 12px;
+
   font-size: 13px;
 
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-lg);
 }
 
 /* =========================================================
-   MOBILE
+   48. FOCUS ACCESSIBILITY
+   ========================================================= */
+
+.app button:focus-visible,
+.app input:focus-visible,
+.app textarea:focus-visible,
+.app select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* =========================================================
+   49. SMOOTH THEME TRANSITION
+   ========================================================= */
+
+.app,
+.app .topbar,
+.app .bottom,
+.app .card,
+.app .recent,
+.app .nt-card,
+.app .date-card,
+.app .inputwrap,
+.app .searchbox,
+.app .theme-option,
+.app .editor-modal,
+.app .editor-area,
+.app .toolbar,
+.app .menu,
+.app .chapter-grid button,
+.app .chapter-head {
+  transition:
+    background-color .25s ease,
+    color .25s ease,
+    border-color .25s ease,
+    box-shadow .25s ease;
+}
+
+/* =========================================================
+   50. MOBILE
    ========================================================= */
 
 @media (max-width: 650px) {
 
-  .content {
+  .app {
+    padding-bottom: 82px;
+  }
+
+  .app .content {
     padding: 18px 16px;
   }
 
-  .topbar {
+  .app .topbar {
+    height: 64px;
     padding: 0 12px;
   }
 
-  .brand {
+  .app .brand {
     font-size: 19px;
   }
 
-  .mobile-menu {
+  .app .mobile-menu {
     display: inline-grid;
   }
 
-  .top-actions .iconbtn:first-child {
+  .app .top-actions .iconbtn:first-child {
     display: none;
   }
 
-  .menu {
+  .app .menu {
     left: 12px;
     right: 12px;
+
     width: auto;
+
+    top: 60px;
   }
 
-  .bottom button {
-    width: 20%;
-  }
-
-  .bottom {
+  .app .bottom {
     height: 72px;
   }
 
-  .stats {
-    border-radius: 18px;
+  .app .bottom button {
+    width: 20%;
   }
 
-  .stat {
+  .app .stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .app .stat {
     min-height: 105px;
   }
 
-  .chapter-grid {
+  .app .stat b {
+    font-size: 21px;
+  }
+
+  .app .chapter-grid {
     gap: 7px;
   }
 
-  .nt-title {
-    gap: 8px;
+  .app .today-card {
+    padding: 26px 14px;
   }
 
-  .nt-title small {
-    font-size: 10px;
-  }
-
-  .editor-overlay {
+  .app .editor-overlay {
     padding: 0;
   }
 
-  .editor-modal {
+  .app .editor-modal {
+    width: 100%;
     height: 100%;
     max-height: none;
+
     border-radius: 0;
   }
 
-  .editor-area {
+  .app .editor-area {
     flex: 1;
   }
 
-  .today-card {
-    padding: 26px 14px;
+  .app .theme-option {
+    padding: 11px;
   }
 }
 
 /* =========================================================
-   DESKTOP THEME GRID
+   51. DESKTOP
    ========================================================= */
 
 @media (min-width: 650px) {
-  .theme-grid {
+
+  .app .theme-grid {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
 }
+
+/* =========================================================
+   END
+   ========================================================= */
